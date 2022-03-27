@@ -1,0 +1,36 @@
+.hoverBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.hoverBackground:hover {
+  background: linear-gradient(270deg, rgba(143, 205, 204, 0.26) 0%, rgba(143, 205, 204, 0.052) 31.56%, rgba(143, 205, 204, 0.26) 100%);
+  filter: blur(2px);
+}
+
+.activeBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(270deg, rgba(143, 205, 204, 0.26) 0%, rgba(143, 205, 204, 0.052) 31.56%, rgba(143, 205, 204, 0.26) 100%);
+  filter: blur(2px);
+}
+
+.hoverText {
+  z-index: 3;
+  position: absolute;
+  text-align: center;
+  line-height: 1.6875rem;
+  padding: 0 1rem;
+  font-size: 1rem;
+  color: #000000;
+  background: #8FCDCC;
+  border: 1px solid #000000;
+  width: max-content;
+}
+
+/*# sourceMappingURL=background.css.map */

@@ -1,0 +1,19 @@
+.arrow{
+  cursor: pointer;
+  width: 0.5125rem;
+  height: 0.5125rem;
+  border-top: 0.25rem solid #8D97AD;
+  border-right: 0.25rem solid #8D97AD;
+  &.up{
+    transform: rotate(-45deg);
+  }
+  &.right{
+    transform: rotate(45deg);
+  }
+  &.down{
+    transform: rotate(135deg);
+  }
+  &.left{
+    transform: rotate(-135deg);
+  }
+}

@@ -1,0 +1,71 @@
+
+.settingTitle{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .searchDiv{
+    margin: 0 1.5rem 0 0;
+    input{
+      height: 2.375rem;
+      width: 17.5rem;
+    }
+  }
+  .leftContainer, .rightContainer{
+    display: flex;
+    align-items: center;
+  }
+  .svgContainer{
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    &.editChangePage{
+      background-image: url("./image/editChangePage.svg");
+    }
+    &.editOnPage{
+      background-image: url("./image/editOnPage.svg");
+    }
+    &.delete{
+      background-image: url("./image/delete.svg");
+    }
+    &.createFolder{
+      background-image: url("./image/createFolder.svg");
+    }
+    &.createChangePage{
+      background-image: url("./image/createChangePage.svg");
+    }
+    &.createOnPage{
+      background-image: url("./image/createOnPage.svg");
+    }
+    &.jsonIn{
+      background-image: url("./image/jsonIn.svg");
+    }
+    &.jsonOut{
+      background-image: url("./image/jsonOut.svg");
+    }
+    &.csvIn{
+      background-image: url("./image/csvIn.svg");
+    }
+    &.csvOut{
+      background-image: url("./image/csvOut.svg");
+    }
+    &.xlsIn{
+      background-image: url("./image/xlsIn.svg");
+    }
+    &.xlsOut{
+      background-image: url("./image/xlsOut.svg");
+    }
+    &.information{
+      background-image: url("./image/information.svg");
+    }
+    &.left{
+      margin: 0 1.5rem 0 0;
+    }
+    &.right{
+      margin: 0 0 0 1.5rem;
+    }
+    .hoverText{
+      bottom: 1.5rem;
+      left: 0;
+    }
+  }
+}

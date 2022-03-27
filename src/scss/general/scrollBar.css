@@ -1,0 +1,26 @@
+::-webkit-scrollbar {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 0.625rem;
+  background-color: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2e465e;
+  border-radius: 0.625rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #253a4c;
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0);
+}
+
+/*# sourceMappingURL=scrollBar.css.map */

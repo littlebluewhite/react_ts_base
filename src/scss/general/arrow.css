@@ -1,0 +1,21 @@
+.arrow {
+  cursor: pointer;
+  width: 0.5125rem;
+  height: 0.5125rem;
+  border-top: 0.25rem solid #8D97AD;
+  border-right: 0.25rem solid #8D97AD;
+}
+.arrow.up {
+  transform: rotate(-45deg);
+}
+.arrow.right {
+  transform: rotate(45deg);
+}
+.arrow.down {
+  transform: rotate(135deg);
+}
+.arrow.left {
+  transform: rotate(-135deg);
+}
+
+/*# sourceMappingURL=arrow.css.map */

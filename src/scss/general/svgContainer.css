@@ -1,0 +1,10 @@
+.svgContainer {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.svgContainer.point {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=svgContainer.css.map */

@@ -1,0 +1,72 @@
+.settingTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.settingTitle .searchDiv {
+  margin: 0 1.5rem 0 0;
+}
+.settingTitle .searchDiv input {
+  height: 2.375rem;
+  width: 17.5rem;
+}
+.settingTitle .leftContainer, .settingTitle .rightContainer {
+  display: flex;
+  align-items: center;
+}
+.settingTitle .svgContainer {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.settingTitle .svgContainer.editChangePage {
+  background-image: url("./image/editChangePage.svg");
+}
+.settingTitle .svgContainer.editOnPage {
+  background-image: url("./image/editOnPage.svg");
+}
+.settingTitle .svgContainer.delete {
+  background-image: url("./image/delete.svg");
+}
+.settingTitle .svgContainer.createFolder {
+  background-image: url("./image/createFolder.svg");
+}
+.settingTitle .svgContainer.createChangePage {
+  background-image: url("./image/createChangePage.svg");
+}
+.settingTitle .svgContainer.createOnPage {
+  background-image: url("./image/createOnPage.svg");
+}
+.settingTitle .svgContainer.jsonIn {
+  background-image: url("./image/jsonIn.svg");
+}
+.settingTitle .svgContainer.jsonOut {
+  background-image: url("./image/jsonOut.svg");
+}
+.settingTitle .svgContainer.csvIn {
+  background-image: url("./image/csvIn.svg");
+}
+.settingTitle .svgContainer.csvOut {
+  background-image: url("./image/csvOut.svg");
+}
+.settingTitle .svgContainer.xlsIn {
+  background-image: url("./image/xlsIn.svg");
+}
+.settingTitle .svgContainer.xlsOut {
+  background-image: url("./image/xlsOut.svg");
+}
+.settingTitle .svgContainer.information {
+  background-image: url("./image/information.svg");
+}
+.settingTitle .svgContainer.left {
+  margin: 0 1.5rem 0 0;
+}
+.settingTitle .svgContainer.right {
+  margin: 0 0 0 1.5rem;
+}
+.settingTitle .svgContainer .hoverText {
+  bottom: 1.5rem;
+  left: 0;
+}
+
+/*# sourceMappingURL=settingTitle.css.map */

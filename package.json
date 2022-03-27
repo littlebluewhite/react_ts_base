@@ -1,4 +1,5 @@
 {
+  "homepage": "./",
   "name": "react_ts_base",
   "version": "0.1.0",
   "private": true,
@@ -10,14 +11,19 @@
     "@types/node": "^16.11.26",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.13",
+    "chart.js": "^3.7.1",
+    "immutability-helper": "^3.1.1",
     "react": "^17.0.2",
+    "react-chartjs-2": "^4.0.1",
     "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0",
+    "react-intl": "^5.24.6",
+    "react-router-dom": "^6.2.2",
+    "react-scripts": "^5.0.0",
     "typescript": "^4.6.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "SET PORT=8778 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -39,5 +45,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "eslint-config-react-app": "^7.0.0",
+    "eslint-plugin-react": "^7.29.3",
+    "eslint-plugin-react-hooks": "^4.3.0"
   }
 }
