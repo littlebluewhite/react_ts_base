@@ -1,0 +1,23 @@
+.pageControl {
+  margin: 0 2rem;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+.pageControl .pageControlButton {
+  display: flex;
+  align-items: center;
+}
+.pageControl .pageControlButton .arrowContainer {
+  width: 3rem;
+  cursor: not-allowed;
+}
+.pageControl .pageControlButton .arrowContainer.active {
+  cursor: pointer;
+}
+.pageControl .pageControlText {
+  width: 13rem;
+  text-align: end;
+}
+
+/*# sourceMappingURL=pageControl.css.map */

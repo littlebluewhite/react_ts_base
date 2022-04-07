@@ -225,6 +225,8 @@ header {
         }
 
         .language {
+          display: flex;
+          align-items: center;
           width: 50%;
           color: #8FCDCC;
           margin: 1rem 1% 0 1.5%;

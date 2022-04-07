@@ -2,8 +2,12 @@ import "./settingTitle.css"
 import {settingTitleType} from "./schemas";
 import {useIconButton} from "./cunstomHook";
 import {useNavigate} from "react-router-dom";
+import {Dispatch} from "react";
+import {settingMode} from "../../reducer/general/settingGeneral";
+import { PageControl } from "../pageControl/pageControl";
 
-export function SettingTitle({config, state, dispatch}: settingTitleType) {
+
+export function SettingTitle({config, state, dispatch, data}: settingTitleType) {
     return (
         <div className={"settingTitle"}>
             <div className={"leftContainer"}>
@@ -12,28 +16,29 @@ export function SettingTitle({config, state, dispatch}: settingTitleType) {
                         <input type="text" className={"search"} placeholder={"search"}/>
                     </div>
                 }
-                {config.editChangePage.active && <EditChangePage link={config.editChangePage.link}/>}
-                {config.editOnPage.active && <div className={"svgContainer editOnPage left"}/>}
-                <div className={"svgContainer delete left"}/>
+                {state.settingMode === settingMode.watch && <EditChangePage config={config.editChangePage}/>}
+                {state.settingMode === settingMode.watch && <EditOnPage config={config.editOnPage} dispatch={dispatch}/>}
+                {state.settingMode === settingMode.watch && <Delete config={config.delete} dispatch={dispatch}/>}
             </div>
             <div className={"rightContainer"}>
-                <div className={"svgContainer createChangePage right"}/>
-                <div className={"svgContainer createOnPage right"}/>
-                <div className={"svgContainer createFolder right"}/>
-                <div className={"svgContainer jsonIn right"}/>
-                <div className={"svgContainer jsonOut right"}/>
-                <div className={"svgContainer csvIn right"}/>
-                <div className={"svgContainer csvOut right"}/>
-                <div className={"svgContainer xlsIn right"}/>
-                <div className={"svgContainer xlsOut right"}/>
-                <div className={"svgContainer information right"}/>
-                {/*<PageControl/>*/}
+                {state.settingMode === settingMode.watch && <CreateChangePage config={config.createChangePage}/>}
+                {state.settingMode === settingMode.watch && <CreateOnPage config={config.createOnPage} dispatch={dispatch}/>}
+                {state.settingMode === settingMode.watch && <CreateFolder config={config.createOnPage} dispatch={dispatch}/>}
+                <JsonIn config={config.jsonIn}/>
+                <JsonOut config={config.jsonOut}/>
+                <CsvIn config={config.csvIn}/>
+                <CsvOut config={config.csvOut}/>
+                <XlsIn config={config.xlsIn}/>
+                <XlsOut config={config.xlsOut}/>
+                <Information config={config.information} dispatch={dispatch}/>
+                {config.pageControl &&
+                    <PageControl state={state} dispatch={dispatch} data={data}/>}
             </div>
         </div>
     )
 }
 
-function EditChangePage(config: {link: string}){
+function EditChangePage({config}: { config: { active: boolean, link: string } }){
     const navigate = useNavigate()
     const clickFunction = () =>{
         navigate(config.link)
@@ -42,14 +47,173 @@ function EditChangePage(config: {link: string}){
         {name:"editChangePage", direction:"left", clickFunction:clickFunction})
     return (
         <>
-            {contain}
+            {config.active && contain}
         </>
     )
 }
 
-function IconElement(){
-    const clickFunction = () => {
-
+function EditOnPage({config, dispatch}: { config: { active: boolean }, dispatch: Dispatch<any>}){
+    const clickFunction = () =>{
+        dispatch({
+            type: "settingGeneral.setStatus",
+            payload: settingMode.edit
+        })
     }
+    const contain = useIconButton(
+        {name:"editOnPage", direction:"left", clickFunction:clickFunction})
+    return (
+        <>
+            {config.active && contain}
+        </>
+    )
 }
 
+function Delete({config, dispatch}: { config: { active: boolean }, dispatch: Dispatch<any>}){
+    const clickFunction = () => {
+        dispatch({
+            type: "settingGeneral.setDeleteModel",
+            payload: true
+        })
+    }
+    const contain = useIconButton(
+        {name:"delete", direction:"left", clickFunction:clickFunction})
+    return (
+        <>
+            {config.active && contain}
+        </>
+    )
+}
+
+function CreateChangePage({config}: { config: { active: boolean, link: string } }) {
+    const navigate = useNavigate()
+    const clickFunction = () =>{
+        navigate(config.link)
+    }
+    const contain = useIconButton(
+        {name:"createChangePage", direction:"right", clickFunction:clickFunction})
+    return (
+        <>
+            {config.active && contain}
+        </>
+    )
+}
+
+function CreateOnPage({config, dispatch}: { dispatch: Dispatch<any>, config: { active: boolean } }) {
+    const clickFunction = () =>{
+        dispatch({
+            type: "settingGeneral.setStatus",
+            payload: settingMode.create
+        })
+    }
+    const contain = useIconButton(
+        {name:"createOnPage", direction:"right", clickFunction:clickFunction})
+    return (
+        <>
+            {config.active && contain}
+        </>
+    )
+}
+
+function CreateFolder({config, dispatch}: { dispatch: Dispatch<any>, config: { active: boolean } }) {
+    const clickFunction = () =>{
+        dispatch({
+            type: "settingGeneral.setStatus",
+            payload: settingMode.create
+        })
+    }
+    const contain = useIconButton(
+        {name:"createFolder", direction:"right", clickFunction:clickFunction})
+    return (
+        <>
+            {config.active && contain}
+        </>
+    )
+}
+
+function JsonIn({config}: { config: { active: boolean } }) {
+    const clickFunction = () =>{
+    }
+    const contain = useIconButton(
+        {name:"jsonIn", direction:"right", clickFunction:clickFunction})
+    return (
+        <>
+            {config.active && contain}
+        </>
+    )
+}
+
+function JsonOut({config}: { config: { active: boolean } }) {
+    const clickFunction = () =>{
+    }
+    const contain = useIconButton(
+        {name:"jsonOut", direction:"right", clickFunction:clickFunction})
+    return (
+        <>
+            {config.active && contain}
+        </>
+    )
+}
+
+function CsvIn({config}: { config: { active: boolean } }) {
+    const clickFunction = () =>{
+    }
+    const contain = useIconButton(
+        {name:"csvIn", direction:"right", clickFunction:clickFunction})
+    return (
+        <>
+            {config.active && contain}
+        </>
+    )
+}
+
+function CsvOut({config}: { config: { active: boolean } }) {
+    const clickFunction = () =>{
+    }
+    const contain = useIconButton(
+        {name:"csvOut", direction:"right", clickFunction:clickFunction})
+    return (
+        <>
+            {config.active && contain}
+        </>
+    )
+}
+
+function XlsIn({config}: { config: { active: boolean } }) {
+    const clickFunction = () =>{
+    }
+    const contain = useIconButton(
+        {name:"xlsIn", direction:"right", clickFunction:clickFunction})
+    return (
+        <>
+            {config.active && contain}
+        </>
+    )
+}
+
+function XlsOut({config}: { config: { active: boolean } }) {
+    const clickFunction = () =>{
+    }
+    const contain = useIconButton(
+        {name:"xlsOut", direction:"right", clickFunction:clickFunction})
+    return (
+        <>
+            {config.active && contain}
+        </>
+    )
+}
+
+function Information({config, dispatch}: { config: { active: boolean }, dispatch: Dispatch<any>}){
+    const clickFunction = () => {
+        dispatch({
+            type: "settingGeneral.setInformationModel",
+            payload: true
+        })
+    }
+    const contain = useIconButton(
+        {name:"information", direction:"right", clickFunction:clickFunction})
+    return (
+        <>
+            {config.active && contain}
+        </>
+    )
+}

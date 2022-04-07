@@ -1,4 +1,3 @@
-
 export const asideDownSetting =
     (() => {
         const defaultData = {
@@ -28,7 +27,6 @@ export const headerSetting =
         try {
             return require("../projectExtra/setting/layoutSetting")["headerSetting"] || defaultData
         } catch {
-            console.log("bbb")
             return defaultData
         }
     })()
@@ -37,7 +35,7 @@ export const headerSetting =
 export const personalMenuSetting =
     (() => {
         const defaultData = {
-            personalSetting: false,
+            personalSetting: true,
             logOut: true
         }
         try {

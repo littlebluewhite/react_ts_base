@@ -66,7 +66,12 @@
 }
 .settingTitle .svgContainer .hoverText {
   bottom: 1.5rem;
+}
+.settingTitle .svgContainer .hoverText.left {
   left: 0;
+}
+.settingTitle .svgContainer .hoverText.right {
+  right: 0;
 }
 
 /*# sourceMappingURL=settingTitle.css.map */

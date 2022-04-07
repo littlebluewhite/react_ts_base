@@ -65,7 +65,12 @@
     }
     .hoverText{
       bottom: 1.5rem;
-      left: 0;
+      &.left{
+        left: 0;
+      }
+      &.right{
+        right:0
+      }
     }
   }
 }

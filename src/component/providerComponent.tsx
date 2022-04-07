@@ -1,11 +1,8 @@
 import React, {createContext, useCallback, useEffect, useState} from "react";
-import EN from "../lang/EN.json";
-import CN from "../lang/CN.json";
-import EN_EXTRA from "../projectExtra/lang/EN.json";
-import CN_EXTRA from "../projectExtra/lang/CN.json";
 import {IntlProvider} from "react-intl";
 import {globalSetting} from "../setting/globalSetting";
 import {defaultAdmin} from "../data/defaultAdmin";
+import {en_us, zh_cn, zh_tw} from "../lang/mergeLang";
 
 const AuthContext = createContext<any>({})
 
@@ -32,21 +29,22 @@ export function AuthProvider({children}: { children: React.ReactNode }) {
 
 // 提供語言全域值
 export function LangProvider({children}: { children: React.ReactNode }) {
-    const [lang, setLang] = useState("EN")
-    const [locale, setLocale] = useState(EN)
+    const [lang, setLang] = useState("en_us")
+    const [locale, setLocale] = useState(en_us as any)
 
     const fetchLang = useCallback((lang: string, setLocale: Function) => {
         switch (lang) {
-            case "EN":
-                const mergeEN = {...EN, ...EN_EXTRA}
-                setLocale(mergeEN)
+            case "en_us":
+                setLocale(en_us)
                 break
-            case "CN":
-                const mergeCN = {...CN, ...CN_EXTRA}
-                setLocale(mergeCN)
+            case "zh_tw":
+                setLocale(zh_tw)
+                break
+            case "zh_cn":
+                setLocale(zh_cn)
                 break
             default:
-                setLocale(EN)
+                setLocale(en_us)
         }
     }, [])
 

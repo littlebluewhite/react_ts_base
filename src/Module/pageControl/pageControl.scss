@@ -1,0 +1,21 @@
+.pageControl{
+  margin: 0 2rem;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  .pageControlButton{
+    display: flex;
+    align-items: center;
+    .arrowContainer{
+      width: 3rem;
+      cursor: not-allowed;
+      &.active{
+        cursor: pointer;
+      }
+    }
+  }
+  .pageControlText{
+    width: 13rem;
+    text-align: end;
+  }
+}

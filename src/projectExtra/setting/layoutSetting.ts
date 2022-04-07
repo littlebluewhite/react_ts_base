@@ -15,6 +15,6 @@ export const headerSetting = {
 }
 
 export const personalMenuSetting = {
-    personalSetting: false,
+    personalSetting: true,
     logOut: true
 }

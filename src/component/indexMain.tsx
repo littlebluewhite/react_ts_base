@@ -38,7 +38,6 @@ function IndexMain() {
                     }/>
                     <Route path={"/tokenLogin/*"} element={<TokenLoginIndex/>}/>
                     {/*<Route path={"/handleError"} element={<HandleError/>}/>*/}
-                    <Route path={"/test/*"} element={<Test/>}/>
                     <Route path={"/*"} element={
                         <RequireAuth>
                             <LayoutIndex/>
@@ -48,31 +47,6 @@ function IndexMain() {
             </LangProvider>
         </AuthProvider>
     )
-}
-
-function Test() {
-    return (
-        <Routes>
-            <Route path={"/1/*"} element={<Test2/>}/>
-            <Route path={"*"} element={<Test3/>}/>
-        </Routes>
-    )
-}
-
-function Test2() {
-    return (
-        <>
-            <div>test1</div>
-            <Routes>
-                <Route path={"/2"} element={<div>test2</div>}/>
-                <Route path={"*"} element={<Test3/>}/>
-            </Routes>
-        </>
-    )
-}
-
-function Test3() {
-    return <div>test3</div>
 }
 
 export {IndexMain}

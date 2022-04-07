@@ -11,7 +11,7 @@ export function useIconButton({name, direction, clickFunction}: iconElementProps
              onClick={()=>clickFunction()}
              onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
             {isHover &&
-                <div className={"hoverText"}>
+                <div className={"hoverText "+direction}>
                     <FormattedMessage id={iconButtonData["hoverLangId"]}/>
                 </div>
             }

@@ -34,7 +34,7 @@ import {topicSetting} from "../../setting/topicSetting";
 import {ModuleNotify} from "../../Module/notification/notification";
 import {alarmNotification} from "../../data/layout/moduleConfig";
 import {useAuth, useLang} from "../../function/generalHook/providerHook";
-import {ParentModel} from "../ParentComponent";
+import {ParentModel} from "../parentComponent";
 import {useAsideHover} from "../../function/layout/customHook";
 import {checkPermission} from "../../function/layout/layoutFunction";
 import {asideDownSetting, headerSetting, personalMenuSetting} from "../../setting/layoutSetting";
@@ -376,18 +376,25 @@ function SettingLanguage() {
             <div className={"languageTopic"}>
                 <FormattedMessage id={"model.personalSetting.selectLang"}/>
             </div>
-            <label htmlFor="CN">
+            <label htmlFor="en_us">
                 <div className={"language"}>
-                    <input type="radio" name={"language"} value={"CN"} checked={language.lang === "CN"}
-                           onChange={event => handleChange(event)} id={"CN"}/>
-                    <FormattedMessage id={"model.personalSetting.CN"}/>
+                    <input type="radio" name={"language"} value={"en_us"} checked={language.lang === "en_us"}
+                           onChange={event => handleChange(event)} id={"en_us"}/>
+                    <FormattedMessage id={"model.personalSetting.en_us"}/>
                 </div>
             </label>
-            <label htmlFor="EN">
+            <label htmlFor="zh_tw">
                 <div className={"language"}>
-                    <input type="radio" name={"language"} value={"EN"} checked={language.lang === "EN"}
-                           onChange={event => handleChange(event)} id={"EN"}/>
-                    <FormattedMessage id={"model.personalSetting.EN"}/>
+                    <input type="radio" name={"language"} value={"zh_tw"} checked={language.lang === "zh_tw"}
+                           onChange={event => handleChange(event)} id={"zh_tw"}/>
+                    <FormattedMessage id={"model.personalSetting.zh_tw"}/>
+                </div>
+            </label>
+            <label htmlFor="zh_cn">
+                <div className={"language"}>
+                    <input type="radio" name={"language"} value={"zh_cn"} checked={language.lang === "zh_cn"}
+                           onChange={event => handleChange(event)} id={"zh_cn"}/>
+                    <FormattedMessage id={"model.personalSetting.zh_cn"}/>
                 </div>
             </label>
         </>
@@ -543,7 +550,7 @@ function AsideSecondTopic({state, dispatch}: asideSecondTopicProps) {
                         <div className={"firstTopic"}>
                             <FormattedMessage id={topicSetting[firstTopic as keyof typeof topicSetting].id}/>
                         </div>
-                        <div className={itemOpen ? "arrow up pointer" : "arrow down pointer"}
+                        <div className={itemOpen ? "arrow up active pointer" : "arrow down active pointer"}
                              onClick={() => setItemOpen(pre => !pre)}/>
                     </div>
                     {itemOpen &&
