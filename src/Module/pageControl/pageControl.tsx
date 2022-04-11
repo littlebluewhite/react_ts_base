@@ -1,9 +1,9 @@
-import {FormattedMessage} from "react-intl";
 import {pageControlType} from "./schemas";
 import "./pageControl.css"
+import { TextLanguage } from "../../component/textComponent";
 
+// use reducer "pageControl"
 export function PageControl({state, dispatch, data}: pageControlType) {
-    console.log(state)
 
     function toPreviousPage() {
         if (state.current === 1) {
@@ -40,8 +40,8 @@ export function PageControl({state, dispatch, data}: pageControlType) {
                 </div>
             </div>
             <div className={"pageControlText"}>{data?.metadata?.downNumber} — {data?.metadata?.upNumber}
-                <FormattedMessage id={"page.row1"}/> {data?.metadata?.totalCount}
-                <FormattedMessage id={"page.row2"}/>
+                <TextLanguage textId={"page.row1"}/> {data?.metadata?.totalCount}
+                <TextLanguage textId={"page.row2"}/>
             </div>
         </div>
     )

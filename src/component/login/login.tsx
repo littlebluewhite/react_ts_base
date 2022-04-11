@@ -35,7 +35,7 @@ function Login({from, messageInit}: LoginProps) {
     }, [auth, navigate, from, setStorageToken])
 
     const handleChange = useCallback(
-        (event: ChangeEvent<HTMLInputElement>, item) => {
+        (event: ChangeEvent<HTMLInputElement>, item: string) => {
             setUser(pre => ({
                 ...pre, [item]: event.target.value
             }))

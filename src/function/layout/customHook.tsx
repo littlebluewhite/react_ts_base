@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {FormattedMessage} from "react-intl";
+import { TextLanguage } from "../../component/textComponent";
 import {topicSetting} from "../../setting/topicSetting";
 
 export function useAsideHover(firstTopicIsOpen: boolean, topic: string){
@@ -9,7 +9,7 @@ export function useAsideHover(firstTopicIsOpen: boolean, topic: string){
     if(!firstTopicIsOpen && hoverIsActive) {
         contain = (
             <div className={"hoverText"}>
-                <FormattedMessage id={topicSetting[topic as keyof typeof topicSetting].id}/>
+                <TextLanguage textId={topicSetting[topic as keyof typeof topicSetting].id}/>
             </div>
         )
     }

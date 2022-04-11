@@ -6,7 +6,7 @@ import {Dispatch} from "react";
 import {settingMode} from "../../reducer/general/settingGeneral";
 import { PageControl } from "../pageControl/pageControl";
 
-
+//  use reducer "settingGeneral"
 export function SettingTitle({config, state, dispatch, data}: settingTitleType) {
     return (
         <div className={"settingTitle"}>

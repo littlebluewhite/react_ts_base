@@ -1,0 +1,21 @@
+.selectContainer {
+  display: flex;
+  align-items: center;
+}
+.selectContainer label {
+  font-size: 1.25rem;
+}
+.selectContainer .selectFilter {
+  background-image: url("./image/selectDown.svg");
+  background-position: right 1rem top 50%;
+  background-size: 0.625rem 0.4375rem;
+  background-repeat: no-repeat;
+  background-color: rgba(143, 205, 204, 0.16);
+  border-radius: 20px;
+  padding-right: 2.2rem;
+  line-height: 2.375rem;
+  padding-left: 0.9375rem;
+  margin: 0 0 0 1rem;
+}
+
+/*# sourceMappingURL=selectModule.css.map */

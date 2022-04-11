@@ -1,7 +1,7 @@
 import {iconElementProps} from "./schemas";
 import {useState} from "react";
-import {FormattedMessage} from "react-intl";
 import {iconButtonConfig} from "./data";
+import { TextLanguage } from "../../component/textComponent";
 
 export function useIconButton({name, direction, clickFunction}: iconElementProps) {
     const [isHover, setIsHover] = useState<boolean>(false)
@@ -12,7 +12,7 @@ export function useIconButton({name, direction, clickFunction}: iconElementProps
              onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
             {isHover &&
                 <div className={"hoverText "+direction}>
-                    <FormattedMessage id={iconButtonData["hoverLangId"]}/>
+                    <TextLanguage textId={iconButtonData["hoverLangId"]}/>
                 </div>
             }
         </div>

@@ -7,65 +7,65 @@ import dashboard from "../image/svg/dashboard.svg"
 
 export const topicSetting = {
     "dashboard": {
-        "id": "header.dashboard",
+        "textId": "header.dashboard",
         "image": dashboard,
         "permission": ["Data_CRUD.ColdData_C", 1],
         "subData": {
             "mainDashboard": {
-                "id": "header.dashboard.mainDashboard",
+                "textId": "header.dashboard.mainDashboard",
                 "permission": true,
             }
         }
 
     },
     "alarmMonitoring": {
-        "id": "header.alarmMonitoring",
+        "textId": "header.alarmMonitoring",
         "image": monitoring,
         "permission": true,
         "subData": {
             "event": {
-                "id": "header.alarmMonitoring.event",
+                "textId": "header.alarmMonitoring.event",
                 "permission": true,
             },
             "history": {
-                "id": "header.alarmMonitoring.history",
+                "textId": "header.alarmMonitoring.history",
                 "permission": ["Data_CRUD.test", 1],
             }
         }
     },
     "accountSetting": {
-        "id": "header.accountSetting",
+        "textId": "header.accountSetting",
         "image": accountSetting,
         "permission": true,
         "subData": {
             "userList": {
-                "id": "header.accountSetting.userList",
+                "textId": "header.accountSetting.userList",
                 "permission": true,
                 "subData": {
                     "editor": {
-                        "id": "header.accountSetting.userList.editor",
+                        "textId": "header.accountSetting.userList.editor",
                         "permission": true,
                     },
                     "create": {
-                        "id": "header.accountSetting.userList.create",
+                        "textId": "header.accountSetting.userList.create",
                         "permission": true,
                     }
                 }
             },
             "group": {
-                "id": "header.accountSetting.group",
+                "textId": "header.accountSetting.group",
                 "permission": true,
             },
             "plugins": {
-                "id": "header.accountSetting.plugins",
+                "textId": "header.accountSetting.plugins",
                 "permission": true,
                 "subData": {
                     "editor": {
-                        "id": "header.accountSetting.plugins.editor",
+                        "textId": "header.accountSetting.plugins.editor",
                         "permission": true,
                     },
                     "create": {
-                        "id": "header.accountSetting.plugins.create",
+                        "textId": "header.accountSetting.plugins.create",
                         "permission": true,
                     }
                 }
@@ -73,24 +73,24 @@ export const topicSetting = {
         }
     },
     "alarmSetting": {
-        "id": "header.alarmSetting",
+        "textId": "header.alarmSetting",
         "image": alarmSetting,
         "permission": true,
         "subData": {
             "category": {
-                "id": "header.alarmSetting.category",
+                "textId": "header.alarmSetting.category",
                 "permission": true,
             },
             "rule": {
-                "id": "header.alarmSetting.rule",
+                "textId": "header.alarmSetting.rule",
                 "permission": true,
                 "subData": {
                     "edit": {
-                        "id": "header.alarmSetting.rule.edit",
+                        "textId": "header.alarmSetting.rule.edit",
                         "permission": true,
                     },
                     "create": {
-                        "id": "header.alarmSetting.rule.create",
+                        "textId": "header.alarmSetting.rule.create",
                         "permission": true,
                     }
                 }
@@ -98,43 +98,43 @@ export const topicSetting = {
         }
     },
     "systemSetting": {
-        "id": "header.systemSetting",
+        "textId": "header.systemSetting",
         "image": systemSetting,
         "permission": true,
         "subData": {
             "url": {
-                "id": "header.systemSetting.url",
+                "textId": "header.systemSetting.url",
                 "permission": true,
             },
             "logo": {
-                "id": "header.systemSetting.logo",
+                "textId": "header.systemSetting.logo",
                 "permission": true,
             }
         }
     },
     "report": {
-        "id": "header.report",
+        "textId": "header.report",
         "image": report,
         "permission": true,
         "subData": {
             "alarmStatistic": {
-                "id": "header.report.alarmStatistic",
+                "textId": "header.report.alarmStatistic",
                 "permission": true,
             },
             "accountReport": {
-                "id": "header.report.accountReport",
+                "textId": "header.report.accountReport",
                 "permission": true,
             },
             "accessControlReport": {
-                "id": "header.report.accessControlReport",
+                "textId": "header.report.accessControlReport",
                 "permission": true,
             },
             "chargerReport": {
-                "id": "header.report.chargerReport",
+                "textId": "header.report.chargerReport",
                 "permission": true,
             },
             "visitorReport": {
-                "id": "header.report.visitorReport",
+                "textId": "header.report.visitorReport",
                 "permission": true,
             },
         }

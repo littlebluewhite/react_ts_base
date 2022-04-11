@@ -31,7 +31,7 @@ export enum topicEnum{
 }
 
 export interface topicDataType{
-    id: string
+    textId: string
     permission: (string | number)[] | boolean
     subData?: any
 }

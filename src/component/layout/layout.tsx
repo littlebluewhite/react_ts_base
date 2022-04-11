@@ -29,7 +29,6 @@ import {
     useParams,
     useResolvedPath
 } from "react-router-dom";
-import {FormattedMessage} from "react-intl";
 import {topicSetting} from "../../setting/topicSetting";
 import {ModuleNotify} from "../../Module/notification/notification";
 import {alarmNotification} from "../../data/layout/moduleConfig";
@@ -40,6 +39,7 @@ import {checkPermission} from "../../function/layout/layoutFunction";
 import {asideDownSetting, headerSetting, personalMenuSetting} from "../../setting/layoutSetting";
 import {AccountSettingIndex} from "./accountSettingIndex/accountSettingIndex";
 import {ProjectArticleIndex} from "../../projectExtra/component/articleIndex";
+import { TextLanguage } from "../textComponent";
 
 export function Layout() {
     const [state, dispatch] = useReducer(layoutReducer, layoutStateInit)
@@ -121,7 +121,7 @@ function HeaderTitleIndex() {
         <div className={"headerTitle"}>
             <Routes>
                 <Route path={"/"} element={
-                    <FormattedMessage id={"header.home"}/>
+                    <TextLanguage textId={"header.home"}/>
                 }/>
                 <Route/>
                 <Route path={"/:firstTopic/*"} element={<HeaderFirstTopic/>}/>
@@ -139,7 +139,7 @@ function HeaderFirstTopic() {
         <>
             {permission ?
                 <span>
-            <FormattedMessage id={firstTopicData.id}/>
+            <TextLanguage textId={firstTopicData.textId}/>
             <Routes>
                 <Route path={"/:secondTopic0/*"}
                        element={<HeaderSecondTopic
@@ -164,7 +164,7 @@ function HeaderSecondTopic({secondData, count, pathname}: headerSecondTopicProps
         <>
             {permission ?
                 <>
-                    &nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;<FormattedMessage id={secondTopicData.id}/>
+                    &nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;<TextLanguage textId={secondTopicData.textId}/>
                     <Routes>
                         <Route path={`/:secondTopic${newCount}/*`}
                                element={
@@ -250,13 +250,13 @@ function PersonalMenu(
                     {personalMenuSetting.personalSetting &&
                         <div className={"setting"}
                              onClick={(event) => openSetting(event)}>
-                            <FormattedMessage id={"model.menu.personalSetting"}/>
+                            <TextLanguage textId={"model.menu.personalSetting"}/>
                         </div>
                     }
                     {personalMenuSetting.logOut &&
                         <div className={"logOut"}
                              onClick={(event) => logOut(event)}>
-                            <FormattedMessage id={"model.menu.logOut"}/>
+                            <TextLanguage textId={"model.menu.logOut"}/>
                         </div>
                     }
                 </div>
@@ -294,18 +294,18 @@ function PersonalSettingBar({select, setSelect}: personalSettingBarProps) {
         <div className={"personalSettingBar"}>
             <div className={"barContainer"}>
                 <div className={"title"}>
-                    <FormattedMessage id={"model.personalSetting.accountSetting"}/>
+                    <TextLanguage textId={"model.personalSetting.accountSetting"}/>
                 </div>
                 <div className={"content" + (select === personalSettingSelect.profile ? " active" : "")}
                      onClick={() => setSelect(personalSettingSelect.profile)}>
-                    <FormattedMessage id={"model.personalSetting.profile"}/>
+                    <TextLanguage textId={"model.personalSetting.profile"}/>
                 </div>
                 <div className={"title topic"}>
-                    <FormattedMessage id={"model.personalSetting.app"}/>
+                    <TextLanguage textId={"model.personalSetting.app"}/>
                 </div>
                 <div className={"content" + (select === personalSettingSelect.language ? " active" : "")}
                      onClick={() => setSelect(personalSettingSelect.language)}>
-                    <FormattedMessage id={"model.personalSetting.language"}/>
+                    <TextLanguage textId={"model.personalSetting.language"}/>
                 </div>
             </div>
         </div>
@@ -317,47 +317,47 @@ function Profile() {
     return (
         <>
             <div className={"profileTitle"}>
-                <FormattedMessage id={"model.personalSetting.basic"}/>
+                <TextLanguage textId={"model.personalSetting.basic"}/>
             </div>
             <div className={"row"}>
                 <div className={"columnContainer"}>
-                    <div className={"subject"}><FormattedMessage id={"model.personalSetting.username"}/></div>
+                    <div className={"subject"}><TextLanguage textId={"model.personalSetting.username"}/></div>
                     <div className={"value"}>{auth.user.AccountInfo.AccountId}</div>
                 </div>
                 <div className={"columnContainer"}>
-                    <div className={"subject"}><FormattedMessage id={"model.personalSetting.role"}/></div>
+                    <div className={"subject"}><TextLanguage textId={"model.personalSetting.role"}/></div>
                     <div className={"value"}>{auth.user.AccountInfo.RoleGroup}</div>
                 </div>
             </div>
             <div className={"row"}>
                 <div className={"columnContainer"}>
-                    <div className={"subject"}><FormattedMessage id={"model.personalSetting.companyName"}/></div>
+                    <div className={"subject"}><TextLanguage textId={"model.personalSetting.companyName"}/></div>
                     <div className={"value"}>{auth.user.AccountInfo.SubCompany}</div>
                 </div>
                 <div className={"columnContainer"}/>
             </div>
             <div className={"profileTitle information"}>
-                <FormattedMessage id={"model.personalSetting.information"}/>
+                <TextLanguage textId={"model.personalSetting.information"}/>
             </div>
             <div className={"row"}>
                 <div className={"columnContainer"}>
-                    <div className={"subject"}><FormattedMessage id={"model.personalSetting.name"}/></div>
+                    <div className={"subject"}><TextLanguage textId={"model.personalSetting.name"}/></div>
                     <div className={"value"}>{auth.user.AccountInfo.UserInfo[0].Value}</div>
                 </div>
                 <div className={"columnContainer"}>
-                    <div className={"subject"}><FormattedMessage id={"model.personalSetting.email"}/></div>
+                    <div className={"subject"}><TextLanguage textId={"model.personalSetting.email"}/></div>
                     <div className={"value"}>{auth.user.AccountInfo.UserInfo[3].Value}</div>
                 </div>
             </div>
             <div className={"row"}>
                 <div className={"columnContainer"}>
-                    <div className={"subject"}><FormattedMessage id={"model.personalSetting.phone"}/></div>
+                    <div className={"subject"}><TextLanguage textId={"model.personalSetting.phone"}/></div>
                     <div className={"value"}>{auth.user.AccountInfo.UserInfo[2].Value}</div>
                 </div>
                 <div className={"columnContainer"}/>
             </div>
             <div className={"row"}>
-                <div className={"addressSubject"}><FormattedMessage id={"model.personalSetting.address"}/></div>
+                <div className={"addressSubject"}><TextLanguage textId={"model.personalSetting.address"}/></div>
                 <div className={"addressValue"}>{auth.user.AccountInfo.UserInfo[1].Value}</div>
             </div>
         </>
@@ -374,27 +374,27 @@ function SettingLanguage() {
     return (
         <>
             <div className={"languageTopic"}>
-                <FormattedMessage id={"model.personalSetting.selectLang"}/>
+                <TextLanguage textId={"model.personalSetting.selectLang"}/>
             </div>
             <label htmlFor="en_us">
                 <div className={"language"}>
                     <input type="radio" name={"language"} value={"en_us"} checked={language.lang === "en_us"}
                            onChange={event => handleChange(event)} id={"en_us"}/>
-                    <FormattedMessage id={"model.personalSetting.en_us"}/>
+                    <TextLanguage textId={"model.personalSetting.en_us"}/>
                 </div>
             </label>
             <label htmlFor="zh_tw">
                 <div className={"language"}>
                     <input type="radio" name={"language"} value={"zh_tw"} checked={language.lang === "zh_tw"}
                            onChange={event => handleChange(event)} id={"zh_tw"}/>
-                    <FormattedMessage id={"model.personalSetting.zh_tw"}/>
+                    <TextLanguage textId={"model.personalSetting.zh_tw"}/>
                 </div>
             </label>
             <label htmlFor="zh_cn">
                 <div className={"language"}>
                     <input type="radio" name={"language"} value={"zh_cn"} checked={language.lang === "zh_cn"}
                            onChange={event => handleChange(event)} id={"zh_cn"}/>
-                    <FormattedMessage id={"model.personalSetting.zh_cn"}/>
+                    <TextLanguage textId={"model.personalSetting.zh_cn"}/>
                 </div>
             </label>
         </>
@@ -447,7 +447,7 @@ function UpAsideElement({topic, firstTopicIsOpen}: upAsideElementProps) {
                                  style={{backgroundImage: `url(${topicSetting[topic as keyof typeof topicSetting].image})`}}>
                             </div>
                             {firstTopicIsOpen ? (<div className={"text"}>
-                                <FormattedMessage id={topicSetting[topic as keyof typeof topicSetting].id}/>
+                                <TextLanguage textId={topicSetting[topic as keyof typeof topicSetting].textId}/>
                             </div>) : null}
                         </div>
                     </Link>
@@ -477,7 +477,7 @@ function Language({firstTopicIsOpen}: { firstTopicIsOpen: boolean }) {
             <div className={"asideDownItem pointer"} onClick={() => setShowModel(true)}>
                 <div className={"svgContainer language"}/>
                 {firstTopicIsOpen ? (<div className={"asideDownText"}>
-                    <FormattedMessage id={"aside.down.lang"}/></div>) : null}
+                    <TextLanguage textId={"aside.down.lang"}/></div>) : null}
             </div>
             {showModel &&
                 <ParentModel>
@@ -496,7 +496,7 @@ function Privacy({firstTopicIsOpen}: { firstTopicIsOpen: boolean }) {
         <div className={"asideDownItem"}>
             <div className={"svgContainer privacy"}/>
             {firstTopicIsOpen ? (<div className={"asideDownText"}>
-                <FormattedMessage id={"aside.down.privacy"}/></div>) : null}
+                <TextLanguage textId={"aside.down.privacy"}/></div>) : null}
         </div>
     )
 }
@@ -506,7 +506,7 @@ function Terms({firstTopicIsOpen}: { firstTopicIsOpen: boolean }) {
         <div className={"asideDownItem"}>
             <div className={"svgContainer terms"}/>
             {firstTopicIsOpen ? (<div className={"asideDownText"}>
-                <FormattedMessage id={"aside.down.terms"}/></div>) : null}
+                <TextLanguage textId={"aside.down.terms"}/></div>) : null}
         </div>
     )
 }
@@ -516,7 +516,7 @@ function Contact({firstTopicIsOpen}: { firstTopicIsOpen: boolean }) {
         <div className={"asideDownItem pointer"}>
             <div className={"svgContainer contact"}/>
             {firstTopicIsOpen ? (<div className={"asideDownText"}>
-                <FormattedMessage id={"aside.down.contact"}/></div>) : null}
+                <TextLanguage textId={"aside.down.contact"}/></div>) : null}
         </div>
     )
 }
@@ -548,7 +548,7 @@ function AsideSecondTopic({state, dispatch}: asideSecondTopicProps) {
                     <div className={"block"}/>
                     <div className={"controlContainer"}>
                         <div className={"firstTopic"}>
-                            <FormattedMessage id={topicSetting[firstTopic as keyof typeof topicSetting].id}/>
+                            <TextLanguage textId={topicSetting[firstTopic as keyof typeof topicSetting].textId}/>
                         </div>
                         <div className={itemOpen ? "arrow up active pointer" : "arrow down active pointer"}
                              onClick={() => setItemOpen(pre => !pre)}/>
@@ -557,8 +557,8 @@ function AsideSecondTopic({state, dispatch}: asideSecondTopicProps) {
                         (Object.keys(secondTopicData).map((item, index) => (
                             checkPermission((secondTopicData[item as keyof typeof secondTopicData] as any).permission, user) &&
                             <SecondTopicLink key={index} to={`/layout/${firstTopic}/${item}`}>
-                                <FormattedMessage
-                                    id={(secondTopicData[item as keyof typeof secondTopicData] as { id: string }).id}/>
+                                <TextLanguage
+                                    textId={(secondTopicData[item as keyof typeof secondTopicData] as { textId: string }).textId}/>
                             </SecondTopicLink>
                         )))}
                 </div>

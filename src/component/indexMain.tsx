@@ -1,4 +1,4 @@
-import {Navigate, Route, Routes, useLocation} from "react-router-dom";
+import {HashRouter, Navigate, Route, Routes, useLocation} from "react-router-dom";
 import {AuthProvider, LangProvider} from "./providerComponent";
 import {useAuth} from "../function/generalHook/providerHook";
 import React from "react";
@@ -28,24 +28,26 @@ function RequireAuth(
 function IndexMain() {
     // console.log("index main")
     return (
-        <AuthProvider>
-            <LangProvider>
-                <Routes>
-                    <Route path={"/login"} element={
-                        <RequireAuth needAuth={false} pathTo={"/layout"}>
-                            <LoginIndex/>
-                        </RequireAuth>
-                    }/>
-                    <Route path={"/tokenLogin/*"} element={<TokenLoginIndex/>}/>
-                    {/*<Route path={"/handleError"} element={<HandleError/>}/>*/}
-                    <Route path={"/*"} element={
-                        <RequireAuth>
-                            <LayoutIndex/>
-                        </RequireAuth>
-                    }/>
-                </Routes>
-            </LangProvider>
-        </AuthProvider>
+        <HashRouter>
+            <AuthProvider>
+                <LangProvider>
+                    <Routes>
+                        <Route path={"/login"} element={
+                            <RequireAuth needAuth={false} pathTo={"/layout"}>
+                                <LoginIndex/>
+                            </RequireAuth>
+                        }/>
+                        <Route path={"/tokenLogin/*"} element={<TokenLoginIndex/>}/>
+                        {/*<Route path={"/handleError"} element={<HandleError/>}/>*/}
+                        <Route path={"/*"} element={
+                            <RequireAuth>
+                                <LayoutIndex/>
+                            </RequireAuth>
+                        }/>
+                    </Routes>
+                </LangProvider>
+            </AuthProvider>
+        </HashRouter>
     )
 }
 

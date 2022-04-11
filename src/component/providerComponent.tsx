@@ -1,5 +1,4 @@
-import React, {createContext, useCallback, useEffect, useState} from "react";
-import {IntlProvider} from "react-intl";
+import React, {createContext, useState} from "react";
 import {globalSetting} from "../setting/globalSetting";
 import {defaultAdmin} from "../data/defaultAdmin";
 import {en_us, zh_cn, zh_tw} from "../lang/mergeLang";
@@ -30,32 +29,22 @@ export function AuthProvider({children}: { children: React.ReactNode }) {
 // 提供語言全域值
 export function LangProvider({children}: { children: React.ReactNode }) {
     const [lang, setLang] = useState("en_us")
-    const [locale, setLocale] = useState(en_us as any)
-
-    const fetchLang = useCallback((lang: string, setLocale: Function) => {
+    let langPackage = (() => {
         switch (lang) {
             case "en_us":
-                setLocale(en_us)
-                break
+                return en_us
             case "zh_tw":
-                setLocale(zh_tw)
-                break
+                return zh_tw
             case "zh_cn":
-                setLocale(zh_cn)
-                break
+                return zh_cn
             default:
-                setLocale(en_us)
+                return en_us
         }
-    }, [])
+    })()
 
-    useEffect(() => {
-        fetchLang(lang, setLocale)
-    }, [lang, setLocale, fetchLang])
     return (
-        <IntlProvider locale={"EN"} messages={locale}>
-            <LangContext.Provider value={{"lang": lang, "setLang": setLang}}>
-                {children}
-            </LangContext.Provider>
-        </IntlProvider>
+        <LangContext.Provider value={{"lang": lang, "setLang": setLang, "langPackage": langPackage}}>
+            {children}
+        </LangContext.Provider>
     )
 }

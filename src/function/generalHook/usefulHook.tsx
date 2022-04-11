@@ -1,6 +1,4 @@
 import {useCallback, useEffect, useRef, useState} from "react";
-import {FormattedMessage} from "react-intl";
-import {topicSetting} from "../../setting/topicSetting";
 
 export function useLocalStorage<T>(
     key: string,

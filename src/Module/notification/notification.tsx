@@ -10,7 +10,7 @@ export function ModuleNotify({config}: notificationType){
     const [count, setCount] = useState<number>(0)
     const controller = useRef<boolean>(false)
     const token = useToken()
-    const refreshCount = useCallback(async (token)=>{
+    const refreshCount = useCallback(async (token: string)=>{
         try{
             const response = await config.api(token)
             const data = await response.json()
