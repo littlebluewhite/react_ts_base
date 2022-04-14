@@ -11,12 +11,14 @@ export const settingGeneralInit = {
     settingMode: settingMode.watch,
     deleteModel: false,
     informationModel: false,
+    search: ""
 }
 
 export type settingGeneralActionType =
-    | {type: "settingGeneral.setStatus", payload: settingMode}
-    | {type: "settingGeneral.setDeleteModel", payload: true | false}
-    | {type: "settingGeneral.setInformationModel", payload: true | false}
+    | { type: "settingGeneral.setStatus", payload: settingMode }
+    | { type: "settingGeneral.setDeleteModel", payload: true | false }
+    | { type: "settingGeneral.setInformationModel", payload: true | false }
+    | { type: "settingGeneral.setSearch", payload: string }
 
 
 export function settingGeneralReducer(
@@ -29,6 +31,8 @@ export function settingGeneralReducer(
             return update(state, {deleteModel: {$set: action.payload}})
         case "settingGeneral.setInformationModel":
             return update(state, {deleteModel: {$set: action.payload}})
+        case "settingGeneral.setSearch":
+            return update(state, {search: {$set: action.payload}})
         default:
             throw new Error()
     }

@@ -8,6 +8,7 @@ import {pageControlActionType, pageControlInit, pageControlReducer} from "../../
 export const userListStateInit = {
     ...settingGeneralInit,
     ...pageControlInit,
+    filterCondition: {"accessLevel": ""}
 }
 
 export type userListActionType =

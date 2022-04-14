@@ -7,14 +7,15 @@ import {SelectModule} from "../../../../Module/selectModule/selectModule";
 import {accessLevelFilter} from "../../../../Module/selectModule/dataLibrary";
 
 
-export function UserList(){
+export function UserList() {
     const [state, dispatch] = useReducer(userListReducer as any, userListStateInit)
     const data = {}
     return (
         <>
             <SettingTitle config={userListTitleConfig} state={state} dispatch={dispatch} data={data}/>
             <div className={"userListFilterContainer"}>
-                <SelectModule changeSelect={()=>{}} value={""} data={accessLevelFilter}/>
+                <SelectModule changeSelect={() => {
+                }} value={""} data={accessLevelFilter}/>
             </div>
         </>
     )

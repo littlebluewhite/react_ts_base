@@ -1,4 +1,5 @@
 export const accessLevelFilter = {
+    name: "accessLevel",
     id: "accessLevelFilter",
     textId: "select.accessLevel",
     option: [

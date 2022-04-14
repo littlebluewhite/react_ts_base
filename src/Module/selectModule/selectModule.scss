@@ -1,10 +1,12 @@
-.selectContainer{
+.selectContainer {
   display: flex;
   align-items: center;
-  label{
+
+  label {
     font-size: 1.25rem;
   }
-  .selectFilter{
+
+  .selectFilter {
     background-image: url("./image/selectDown.svg");
     background-position: right 1rem top 50%;
     background-size: 0.625rem 0.4375rem;
@@ -15,5 +17,9 @@
     line-height: 2.375rem;
     padding-left: 0.9375rem;
     margin: 0 0 0 1rem;
+
+    &:focus {
+      background-color: #495b7c;
+    }
   }
 }

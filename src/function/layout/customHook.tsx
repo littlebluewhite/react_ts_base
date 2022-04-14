@@ -9,7 +9,7 @@ export function useAsideHover(firstTopicIsOpen: boolean, topic: string){
     if(!firstTopicIsOpen && hoverIsActive) {
         contain = (
             <div className={"hoverText"}>
-                <TextLanguage textId={topicSetting[topic as keyof typeof topicSetting].id}/>
+                <TextLanguage textId={topicSetting[topic as keyof typeof topicSetting].textId}/>
             </div>
         )
     }

@@ -17,5 +17,8 @@
   padding-left: 0.9375rem;
   margin: 0 0 0 1rem;
 }
+.selectContainer .selectFilter:focus {
+  background-color: #495b7c;
+}
 
 /*# sourceMappingURL=selectModule.css.map */
