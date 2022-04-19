@@ -2,6 +2,7 @@ import React, {createContext, useState} from "react";
 import {globalSetting} from "../setting/globalSetting";
 import {defaultAdmin} from "../data/defaultAdmin";
 import {en_us, zh_cn, zh_tw} from "../lang/mergeLang";
+import {IntlProvider} from "react-intl";
 
 const AuthContext = createContext<any>({})
 
@@ -43,8 +44,10 @@ export function LangProvider({children}: { children: React.ReactNode }) {
     })()
 
     return (
-        <LangContext.Provider value={{"lang": lang, "setLang": setLang, "langPackage": langPackage}}>
-            {children}
-        </LangContext.Provider>
+        <IntlProvider locale={"EN"} messages={langPackage}>
+            <LangContext.Provider value={{"lang": lang, "setLang": setLang, "langPackage": langPackage}}>
+                {children}
+            </LangContext.Provider>
+        </IntlProvider>
     )
 }
