@@ -81,6 +81,10 @@ export const common = {
     "header.report.accessControlReport": "门禁管理报表",
     "header.report.chargerReport": "充电桩报表",
     "header.report.visitorReport": "访客统计报表",
+    "header.underConstruction": "开发中测试",
+    "header.underConstruction.test1": "测试 1",
+    "header.underConstruction.test2": "测试 2",
+    "header.underConstruction.test3": "测试 3",
     "header.dashboard": "战情室仪表板",
     "header.dashboard.mainDashboard": "主要儀錶板",
 

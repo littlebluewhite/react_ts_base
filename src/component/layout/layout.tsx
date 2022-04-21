@@ -40,6 +40,7 @@ import {asideDownSetting, headerSetting, personalMenuSetting} from "../../settin
 import {AccountSettingIndex} from "./accountSettingIndex/accountSettingIndex";
 import {ProjectArticleIndex} from "../../projectExtra/component/articleIndex";
 import { TextLanguage } from "../textComponent";
+import {UnderConstructionIndex} from "./underConstruction/underConstructionIndex";
 
 export function Layout() {
     const [state, dispatch] = useReducer(layoutReducer, layoutStateInit)
@@ -587,6 +588,7 @@ function Article() {
                 <div className={"articleContent"}>
                     <Routes>
                         <Route path={"accountSetting/*"} element={<AccountSettingIndex/>}/>
+                        <Route path={"underConstruction/*"} element={<UnderConstructionIndex/>}/>
                         <Route path={"*"} element={<ProjectArticleIndex/>}/>
                     </Routes>
                 </div>

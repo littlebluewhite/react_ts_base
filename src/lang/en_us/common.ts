@@ -81,6 +81,10 @@ export const common = {
     "header.report.accessControlReport": "Access Control Report",
     "header.report.chargerReport": "Charger Report",
     "header.report.visitorReport": "Visitor Report",
+    "header.underConstruction": "Under Construction",
+    "header.underConstruction.test1": "Test 1",
+    "header.underConstruction.test2": "Test 2",
+    "header.underConstruction.test3": "Test 3",
     "header.dashboard": "Dashboard",
     "header.dashboard.mainDashboard": "Main Dashboard",
 

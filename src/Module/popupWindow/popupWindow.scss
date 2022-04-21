@@ -1,0 +1,74 @@
+.model{
+    > .page1{
+        width: 560px;
+        height: 370px;
+        > .head{
+            height: 50%;
+            width: 100%;
+            background: linear-gradient(57.58deg, #00262F 53.44%, #495B7C 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px 10px 0px 0px;
+            font-size: 34px;
+            line-height: 49px;
+            color: #FFFFFF;
+        }
+        > .body{
+            background: #FFFFFF;
+            width: 100%;
+            height: 50%;
+            border-radius: 0px 0px 10px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            > button{
+                border-radius: 10px;
+                width: 210px;
+                height: 70px;
+                background: linear-gradient(57.58deg, #024A5B 53.44%, #495B7C 100%);
+                color: #FFFFFF;
+                font-family: 'Noto Sans SC';
+                font-style: normal;
+                font-size: 28px;
+                margin: 0px 22px 0px 23px;
+            }
+        }
+    }
+    > .page2{
+        width: 530px;
+        height: 550px;
+        > .head{
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(57.58deg, #00262F 53.44%, #495B7C 100%);
+            border-radius: 10px 10px 0px 0px;
+            font-size: 34px;
+            font-family: 'Noto Sans SC';
+            font-style: normal;
+        }
+        > .body{
+            height: 60%;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            background: #FFFFFF;
+            border-radius: 0px 0px 10px 10px;
+            color: #8D97AD;
+            font-size: 24px;
+            > button{
+                background: linear-gradient(57.58deg, #024A5B 53.44%, #495B7C 100%);
+                color: #FFFFFF;
+                width: 210px;
+                height: 70px;
+                border-radius: 10px;
+                font-size: 28px;
+                margin-top: 45px;
+            }
+        }
+    }
+}

@@ -4,6 +4,7 @@ import alarmSetting from "../image/svg/alarmSetting.svg"
 import systemSetting from "../image/svg/systemSetting.svg"
 import report from "../image/svg/report.svg"
 import dashboard from "../image/svg/dashboard.svg"
+import underConstruction from "../../image/svg/underConstruction.svg";
 
 export const topicSetting = {
     "dashboard": {
@@ -138,5 +139,24 @@ export const topicSetting = {
                 "permission": true,
             },
         }
-    }
+    },
+    "underConstruction": {
+        "textId": "header.underConstruction",
+        "image": underConstruction,
+        "permission": true,
+        "subData": {
+            "test1": {
+                "textId": "header.underConstruction.test1",
+                "permission": true,
+            },
+            "test2": {
+                "textId": "header.underConstruction.test2",
+                "permission": true,
+            },
+            "test3": {
+                "textId": "header.underConstruction.test3",
+                "permission": true,
+            },
+        }
+    },
 }
