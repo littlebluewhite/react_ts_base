@@ -4,8 +4,8 @@ export enum popupStatus {
     page2,
 }
 
-export interface popupWindowProps{
-    conf: confStructure
+export interface popupWindowParams {
+    config: confStructure
     func1: Function
     func2: Function
 }
@@ -25,4 +25,5 @@ interface page2Structure {
     title: string
     context: string
     button: string
+    titleImage: string
 }
