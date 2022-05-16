@@ -1,6 +1,6 @@
 import {HashRouter, Navigate, Route, Routes, useLocation} from "react-router-dom";
 import {AuthProvider, LangProvider} from "./providerComponent";
-import {useAuth} from "../function/generalHook/providerHook";
+import {useAuth} from "../generalFunction/providerHook";
 import React from "react";
 import {LoginIndex} from "./login/loginIndex";
 import {TokenLoginIndex} from "./tokenLogin/tokenLoginIndex";

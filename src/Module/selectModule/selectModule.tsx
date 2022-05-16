@@ -1,9 +1,9 @@
 import {optionType, selectModuleType} from "./schemas";
 import "./selectModule.css";
 import { TextLanguage } from "../../component/textComponent";
-import {useLang} from "../../function/generalHook/providerHook";
+import {useLang} from "../../generalFunction/providerHook";
 
-export function SelectModule({changeSelect, data, value}: selectModuleType){
+export function SelectModule({changeSelect, value, data}: selectModuleType){
     return(
          <div className={"selectContainer " + data.id}>
             <label htmlFor={data.id}>

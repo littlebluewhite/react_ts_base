@@ -1,4 +1,4 @@
-import "../../scss/layout/layout.css"
+import "./layout.css"
 import React, {useEffect, useReducer, useState} from "react";
 import {
     asideContainerProps,
@@ -14,10 +14,10 @@ import {
     personalStatus,
     topicDataType,
     topicEnum, upAsideElementProps
-} from "../../data/layout/schemas";
+} from "./schemas";
 import {globalSetting} from "../../setting/globalSetting";
 import navigation from "../../image/png/navigation.png"
-import {layoutReducer, layoutStateInit} from "../../reducer/layout/layoutReducer";
+import {layoutReducer, layoutStateInit} from "./layoutReducer";
 import {
     Link,
     LinkProps,
@@ -31,11 +31,11 @@ import {
 } from "react-router-dom";
 import {topicSetting} from "../../setting/topicSetting";
 import {ModuleNotify} from "../../Module/notification/notification";
-import {alarmNotification} from "../../data/layout/moduleConfig";
-import {useAuth, useLang} from "../../function/generalHook/providerHook";
+import {alarmNotification} from "./moduleConfig";
+import {useAuth, useLang} from "../../generalFunction/providerHook";
 import {ParentModel} from "../parentComponent";
-import {useAsideHover} from "../../function/layout/customHook";
-import {checkPermission} from "../../function/layout/layoutFunction";
+import {useAsideHover} from "./customHook";
+import {checkPermission} from "./layoutFunction";
 import {asideDownSetting, headerSetting, personalMenuSetting} from "../../setting/layoutSetting";
 import {AccountSettingIndex} from "./accountSettingIndex/accountSettingIndex";
 import {ProjectArticleIndex} from "../../projectExtra/component/articleIndex";

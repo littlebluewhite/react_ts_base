@@ -1,0 +1,132 @@
+input {
+  display: block;
+  font-family: Noto Sans SC, "sans-serif";
+  border: none;
+  background: none;
+  box-sizing: border-box;
+
+  &.input {
+    height: 100%;
+    border: 1px solid #8FCDCC;
+    color: white;
+    font-size: 1.25rem;
+
+    &:focus {
+      box-shadow: 0 0 2px 3px rgba(143, 205, 204, 0.55);
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &[type="range"] {
+    position: relative;
+    -webkit-appearance: none;
+    display: block;
+    overflow: hidden; /* 限定範圍 */
+    outline: none; /* 避免點選會有藍線或虛線 */
+    background: none;
+
+    &.none {
+      display: none;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      position: relative;
+      bottom: 0.5rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      border-radius: 50%;
+      background: radial-gradient(50% 50% at 50% 50%, #00FF94 52.4%, #00262F 100%);
+      cursor: pointer;
+      border: 2px solid #414f66;
+      transition: .2s; /* 點選放大時候的漸變時間 */
+    }
+
+    &::-webkit-slider-runnable-track {
+      width: 1%;
+      height: 0.4rem;
+      cursor: pointer;
+      background: rgba(0, 255, 148, 0.4);
+      border-radius: 1rem;
+      border: 0.2px solid #232b39;
+    }
+
+    &.style0 {
+      &::-webkit-slider-thumb {
+        background: radial-gradient(50% 50% at 50% 50%, #522024 52.4%, #00262F 100%);
+      }
+
+      &::-webkit-slider-runnable-track {
+        background: rgba(232, 11, 137, 0.4);
+      }
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+
+      &::-webkit-slider-thumb {
+        //background: radial-gradient(50% 50% at 50% 50%, #303032 52.4%, #00262F 100%);
+        cursor: not-allowed;
+      }
+
+      &::-webkit-slider-runnable-track {
+        //background: #323E3D;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &[type="date"], &[type="month"] {
+    color: #8FCDCC;
+
+    &::-webkit-calendar-picker-indicator {
+      background-image: url("../image/svg/calendar.svg");
+      cursor: pointer;
+
+      &:hover {
+        background-image: url("../image/svg/calenderHover.svg");
+        background-color: #00E0FF;
+      }
+    }
+
+    &[disabled] {
+      color: rgba(143, 205, 204, 0.5);
+    }
+
+    &[type="datetime-local"]::-webkit-calendar-picker-indicator {
+      background-image: url("../image/svg/calendar.svg");
+      cursor: pointer;
+    }
+  }
+
+  &[type="time"]::-webkit-calendar-picker-indicator {
+    background-image: url("../image/svg/time.svg");
+    cursor: pointer;
+
+    &:hover {
+      background-image: url("../image/svg/timeHover.svg");
+      background-color: #00E0FF;
+    }
+  }
+
+  &.search {
+    background-image: url("../image/svg/search.svg");
+    background-size: 1.1875rem 1.1875rem;
+    color: #8FCDCC;
+    border: 1px solid #8FCDCC;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    padding-left: 2.75rem;
+    //background-color: #00262f;
+    background-position-y: center;
+    background-position-x: 0.8125rem;
+
+    &[disabled] {
+      border: 1px solid #8FCDCC;
+      opacity: .4;
+    }
+  }
+}

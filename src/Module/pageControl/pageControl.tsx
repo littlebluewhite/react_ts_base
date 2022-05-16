@@ -2,7 +2,7 @@ import {pageControlType} from "./schemas";
 import "./pageControl.css"
 import { TextLanguage } from "../../component/textComponent";
 
-// use reducer "pageControl"
+// use generalReducer "pageControl"
 export function PageControl({state, dispatch, data}: pageControlType) {
 
     function toPreviousPage() {

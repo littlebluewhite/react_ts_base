@@ -2,18 +2,26 @@ import "./settingTitle.css"
 import {settingTitleType} from "./schemas";
 import {useIconButton} from "./cunstomHook";
 import {useNavigate} from "react-router-dom";
-import {Dispatch} from "react";
-import {settingMode} from "../../reducer/general/settingGeneral";
+import React, {Dispatch} from "react";
+import {settingMode} from "../../generalReducer/settingGeneral";
 import { PageControl } from "../pageControl/pageControl";
 
-//  use reducer "settingGeneral"
+//  use generalReducer "settingGeneral"
 export function SettingTitle({config, state, dispatch, data}: settingTitleType) {
+    function handleSearch(event: React.ChangeEvent<HTMLInputElement>){
+        dispatch({
+            type: "settingGeneral.setSearch",
+            payload: event.target.value
+        })
+    }
     return (
         <div className={"settingTitle"}>
             <div className={"leftContainer"}>
                 {config.search &&
                     <div className={"searchDiv"}>
-                        <input type="text" className={"search"} placeholder={"search"}/>
+                        <input type="text" className={"search"} placeholder={"search"}
+                               onChange={event=>handleSearch(event)} value={state.search}
+                        />
                     </div>
                 }
                 {state.settingMode === settingMode.watch && <EditChangePage config={config.editChangePage}/>}
@@ -23,7 +31,7 @@ export function SettingTitle({config, state, dispatch, data}: settingTitleType) 
             <div className={"rightContainer"}>
                 {state.settingMode === settingMode.watch && <CreateChangePage config={config.createChangePage}/>}
                 {state.settingMode === settingMode.watch && <CreateOnPage config={config.createOnPage} dispatch={dispatch}/>}
-                {state.settingMode === settingMode.watch && <CreateFolder config={config.createOnPage} dispatch={dispatch}/>}
+                {state.settingMode === settingMode.watch && <CreateFolder config={config.createFolder} dispatch={dispatch}/>}
                 <JsonIn config={config.jsonIn}/>
                 <JsonOut config={config.jsonOut}/>
                 <CsvIn config={config.csvIn}/>

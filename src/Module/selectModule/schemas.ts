@@ -6,6 +6,7 @@ export interface selectModuleType {
     data: {
         id: string
         textId: string
+        index: any
         option: optionType[]
     }
 }

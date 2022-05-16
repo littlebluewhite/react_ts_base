@@ -1,4 +1,4 @@
-import {usePopupWindow} from "../../../../Module/popupWindow/popupWindow";
+import {usePopupWindow3} from "../../../../Module/popupWindow/popupWindow";
 import {saveConfig} from "../../../../Module/popupWindow/exampleConfig";
 
 export function Test1(){
@@ -8,7 +8,7 @@ export function Test1(){
         func2: ()=>console.log(2)
     }
 
-    const {component , setIsOpen}=usePopupWindow(params)
+    const [component , setIsOpen]=usePopupWindow3(params)
     return (
         <div>
              <button onClick={()=>setIsOpen(true)}>儲存</button>

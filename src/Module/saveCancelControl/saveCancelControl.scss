@@ -1,0 +1,21 @@
+.saveCancelControl {
+  width: 78.5%;
+  bottom: 0;
+  display: flex;
+  position: fixed;
+  background: rgba(73, 91, 124, 0.6);
+  box-shadow: 0 4px 6px 10px rgba(0, 25, 31, 0.8);
+  border-radius: .25rem .25rem 0 0;
+  height: 4.5rem;
+  align-items: center;
+  justify-content: flex-end;
+
+  .buttonContainer {
+    display: flex;
+    margin: 0 3rem 0 0;
+
+    button {
+      margin: 0 .625rem;
+    }
+  }
+}

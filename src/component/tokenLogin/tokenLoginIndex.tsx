@@ -1,9 +1,9 @@
 import {Navigate, Route, Routes, useNavigate, useParams, useSearchParams} from "react-router-dom";
 import {useEffect, useRef} from "react";
-import {fetchSelfTemplate, fetchTokenLogin} from "../../function/login/loginFetch";
-import {successLogin} from "../../function/login/loginFunction";
-import {useLocalStorage} from "../../function/generalHook/usefulHook";
-import {useAuth} from "../../function/generalHook/providerHook";
+import {fetchSelfTemplate, fetchTokenLogin} from "../login/loginFetch";
+import {successLogin} from "../login/loginFunction";
+import {useLocalStorage} from "../../generalFunction/usefulHook";
+import {useAuth} from "../../generalFunction/providerHook";
 
 function TokenLoginIndex() {
     // console.log("token login index")

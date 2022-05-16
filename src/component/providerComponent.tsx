@@ -1,6 +1,6 @@
 import React, {createContext, useState} from "react";
 import {globalSetting} from "../setting/globalSetting";
-import {defaultAdmin} from "../data/defaultAdmin";
+import {defaultAdmin} from "../generalData/defaultAdmin";
 import {en_us, zh_cn, zh_tw} from "../lang/mergeLang";
 import {IntlProvider} from "react-intl";
 

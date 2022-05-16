@@ -1,0 +1,45 @@
+.sortModule {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  border-bottom: 1px solid #8D97AD;
+  padding-bottom: 0.5rem;
+}
+.sortModule > .SortElement {
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  border-right: 0.125rem solid #8FCDCC;
+  padding-left: 0.8rem;
+  font-size: 1.625rem;
+}
+.sortModule > .SortElement:last-child {
+  border: none;
+}
+.sortModule > .SortElement > .sortArrow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 0.3125rem;
+}
+.sortModule > .SortElement > .sortArrow > .triangle {
+  border-left: 0.1875rem solid transparent;
+  border-right: 0.1875rem solid transparent;
+}
+.sortModule > .SortElement > .sortArrow > .triangle.triangleUp {
+  border-bottom: 0.25rem solid rgba(143, 205, 204, 0.26);
+  margin-bottom: 0.3125rem;
+}
+.sortModule > .SortElement > .sortArrow > .triangle.triangleUp.active {
+  border-bottom: 0.25rem solid #05CCFF;
+}
+.sortModule > .SortElement > .sortArrow > .triangle.triangleDown {
+  border-top: 0.25rem solid rgba(143, 205, 204, 0.26);
+  margin-top: 0.3125rem;
+}
+.sortModule > .SortElement > .sortArrow > .triangle.triangleDown.active {
+  border-top: 0.25rem solid #05CCFF;
+}
+
+/*# sourceMappingURL=sortModule.css.map */

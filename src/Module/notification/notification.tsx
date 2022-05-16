@@ -2,9 +2,9 @@ import {Link} from "react-router-dom";
 import {notificationType} from "./schemas";
 import {useCallback, useEffect, useRef, useState} from "react";
 import "./notification.css"
-import {useToken} from "../../function/generalHook/providerHook";
+import {useToken} from "../../generalFunction/providerHook";
 import {globalSetting} from "../../setting/globalSetting";
-import {useInterval} from "../../function/generalHook/usefulHook";
+import {useInterval} from "../../generalFunction/usefulHook";
 
 export function ModuleNotify({config}: notificationType){
     const [count, setCount] = useState<number>(0)

@@ -1,13 +1,13 @@
 import {globalSetting} from "../../setting/globalSetting";
 import indexDefaultPhoto from "../../image/png/index.png"
 import {ChangeEvent, FormEvent, useCallback, useState} from "react";
-import {LoginProps, userDefault, userType} from "../../data/login/schemas";
-import {fetchLogin, fetchSelfTemplate} from "../../function/login/loginFetch";
-import {successLogin} from "../../function/login/loginFunction";
+import {LoginProps, userDefault, userType} from "./schemas";
+import {fetchLogin, fetchSelfTemplate} from "./loginFetch";
+import {successLogin} from "./loginFunction";
 import {useNavigate} from "react-router-dom";
-import "../../scss/login/login.css"
-import {useLocalStorage} from "../../function/generalHook/usefulHook";
-import {useAuth} from "../../function/generalHook/providerHook";
+import "./login.css"
+import {useLocalStorage} from "../../generalFunction/usefulHook";
+import {useAuth} from "../../generalFunction/providerHook";
 
 
 function Login({from, messageInit}: LoginProps) {

@@ -1,8 +1,8 @@
 import {SettingTitle} from "../../../../Module/settingTitle/settingTitle";
-import {userListTitleConfig} from "../../../../data/layout/accountSetting/userList/moduleConfig";
-import "../../../../scss/layout/accountSettingIndex/userList/userList.css"
+import {userListTitleConfig} from "./moduleConfig";
+import "./userList.css"
 import {useReducer} from "react";
-import {userListReducer, userListStateInit} from "../../../../reducer/layout/accountSetting/userList/userListReducer";
+import {userListReducer, userListStateInit} from "./userListReducer";
 import {SelectModule} from "../../../../Module/selectModule/selectModule";
 import {accessLevelFilter} from "../../../../Module/selectModule/dataLibrary";
 

@@ -1,7 +1,7 @@
-import {useLocalStorage} from "../../function/generalHook/usefulHook";
+import {useLocalStorage} from "../../generalFunction/usefulHook";
 import {Navigate, useLocation} from "react-router-dom";
 import {Login} from "./login";
-import {fromType} from "../../data/login/schemas";
+import {fromType} from "./schemas";
 
 // localStorage是否有token存在
 function LoginIndex() {

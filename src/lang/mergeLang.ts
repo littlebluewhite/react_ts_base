@@ -1,4 +1,4 @@
-import {importAll} from "../function/importFunction";
+import {importAll} from "../generalFunction/importFunction";
 
 function langMerge(lang: string) {
     let result = {}

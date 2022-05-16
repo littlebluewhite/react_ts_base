@@ -1,4 +1,4 @@
-import {useLang} from "../function/generalHook/providerHook";
+import {useLang} from "../generalFunction/providerHook";
 
 export function TextLanguage({
   textId,

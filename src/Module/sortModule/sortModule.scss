@@ -1,0 +1,43 @@
+.sortModule{
+    display: flex;
+    flex-direction: row;
+    color: #FFFFFF;
+    border-bottom: 1px solid #8D97AD;
+    padding-bottom: .5rem;
+    > .SortElement{
+        cursor: pointer;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        border-right: .125rem solid #8FCDCC;
+        padding-left: 0.8rem;
+        font-size: 1.625rem;
+        &:last-child{
+        border: none;
+    }
+        > .sortArrow{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: .3125rem;
+            >.triangle{
+                border-left: 0.1875rem solid transparent;
+                border-right: 0.1875rem solid transparent;
+                &.triangleUp{
+                    border-bottom: 0.25rem solid rgba(143, 205, 204, 0.26);
+                    margin-bottom: .3125rem;
+                    &.active{
+                        border-bottom: 0.25rem solid #05CCFF;
+                    }
+                }
+                &.triangleDown{
+                    border-top: 0.25rem solid rgba(143, 205, 204, 0.26);
+                    margin-top: .3125rem;
+                    &.active{
+                        border-top: 0.25rem solid #05CCFF;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -184,7 +184,7 @@ export const common = {
     "alarmHistory.startTime": "Start Time",
     "alarmHistory.endDate": "End Date*",
     "alarmHistory.endTime": "End Time",
-    "alarmHistory.note": "*Provides up to one year of history details per query interval. And the maximum number of inquiries in this item is 500 rows. If the data exceeds 500 or more,\n  please inquire in sections.",
+    "alarmHistory.note": "*Provides up to one year of history details per query interval. And the maximum number of inquiries in this item is 500 rows. If the generalData exceeds 500 or more,\n  please inquire in sections.",
     "alarmSetting.editor.title": "Edit Alarm Rules",
     "alarmSetting.add.title": "Add New Alarm Rule",
 
@@ -251,7 +251,7 @@ export const common = {
     "report.charger.day.report": " and Daily Report",
     "report.charger.month.report": " and Monthly Report",
     "report.charger.title": " Total Cost",
-    "report.charger.match": "The total matches of data are ",
+    "report.charger.match": "The total matches of generalData are ",
     "report.charger.usage": " Usage Rate",
     "report.charger.to": " to ",
     "report.charger.from": "From",
