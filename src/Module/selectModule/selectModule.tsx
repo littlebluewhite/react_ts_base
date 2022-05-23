@@ -1,19 +1,30 @@
-import {optionType, selectModuleType} from "./schemas";
+import {optionType, FilterModuleType} from "./schemas";
 import "./selectModule.css";
 import { TextLanguage } from "../../component/textComponent";
 import {useLang} from "../../generalFunction/providerHook";
+import React, {ChangeEvent} from "react";
 
-export function SelectModule({changeSelect, value, data}: selectModuleType){
+// reducer use filterReducer
+export function FilterModule({state, dispatch, config}: FilterModuleType){
+    function changeSelect(event: ChangeEvent<HTMLSelectElement>){
+        dispatch({
+            type: "filter.setFilter",
+            payload: {
+                field: config.name,
+                condition: event.target.value,
+            }
+        })
+    }
     return(
-         <div className={"selectContainer " + data.id}>
-            <label htmlFor={data.id}>
-                <TextLanguage textId={data.textId}/>
+         <div className={"FilterModule " + config.id}>
+            <label htmlFor={config.id}>
+                <TextLanguage textId={config.textId}/>
             </label>
-            <select id={data.id} className={"selectFilter "+data.id}
+            <select id={config.id} className={"selectFilter "+config.id}
                     onChange={(event) => {changeSelect(event)}}
-                    value={value}
+                    value={state.filter[config.name]}
             >
-                {data.option.map((item, index) => (
+                {config.option.map((item, index) => (
                     <OptionAuto option={item} key={index}/>))}
             </select>
         </div>)
@@ -29,5 +40,3 @@ function OptionAuto({option}: {option: optionType}){
         </>
     )
 }
-
-

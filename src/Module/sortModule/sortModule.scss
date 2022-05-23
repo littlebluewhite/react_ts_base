@@ -18,8 +18,8 @@
         > .sortArrow{
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            margin-left: .3125rem;
+            justify-content: space-between;
+            margin: .4rem 0 .4rem .5rem;
             >.triangle{
                 border-left: 0.1875rem solid transparent;
                 border-right: 0.1875rem solid transparent;

@@ -129,4 +129,28 @@ input {
       opacity: .4;
     }
   }
+  input[type="radio"] {
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%
+  }
+
+  input[type="radio"]:checked {
+    border: #FFFFFF .2rem solid;
+    background: #00262F;
+  }
+  input[type="mutiple"] {
+    height: 1rem;
+    width: 1rem;
+    border-radius: .125rem;
+    box-sizing: border-box;
+  }
+  input[type="mutiple"]:checked {
+    -webkit-appearance: none;
+    background: #00262F;
+    border: white .2rem solid;
+  }
 }

@@ -10,6 +10,7 @@ import {fetchGroup} from "./fetchFunction";
 import {useToken} from "../../../../generalFunction/providerHook";
 import {SaveCancelControl} from "../../../../Module/saveCancelControl/saveCancelControl";
 import {groupsDataProps} from "./schemas";
+import {settingTitleDispatch, settingTitleState} from "../../../../Module/settingTitle/schemas";
 
 export function Group() {
     const token = useToken()
@@ -49,7 +50,7 @@ export function Group() {
 
     return (
         <div className={"group"}>
-            <SettingTitle config={groupTitleConfig} state={state} dispatch={dispatch} data={data}/>
+            <SettingTitle config={groupTitleConfig} state={state as settingTitleState} dispatch={dispatch as settingTitleDispatch} data={data}/>
             <SortModule config={groupSortConfig} state={state as typeof sortInit} dispatch={dispatch}/>
             <GroupsData data={data} state={state} dispatch={dispatch}/>
             <SaveCancelControl state={state} dispatch={dispatch}

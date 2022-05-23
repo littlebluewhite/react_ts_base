@@ -1,11 +1,20 @@
 import {iconButtonConfig} from "./data";
 import {Dispatch} from "react";
+import {settingGeneralActionType, settingGeneralInit} from "../../generalReducer/settingGeneral";
+import {pageControlActionType, pageControlInit} from "../../generalReducer/pageControl";
+import {popupConfig, popupWindow3Params} from "../popupWindow/schemas";
+
+export type settingTitleState = typeof settingGeneralInit & typeof pageControlInit
+
+export type settingTitleDispatch = Dispatch<settingGeneralActionType | pageControlActionType>
 
 export interface settingTitleType {
     config: settingTitleConfigType
-    state: any
-    dispatch: Dispatch<any>
+    state: settingTitleState
+    dispatch: settingTitleDispatch
     data: any
+    deleteFunc1?: Function
+    deleteFunc2?: Function
 }
 
 export interface settingTitleConfigType {
@@ -17,9 +26,7 @@ export interface settingTitleConfigType {
     editOnPage: {
         active: boolean
     }
-    delete: {
-        active: boolean
-    }
+    delete: deleteConfig
     createChangePage: {
         active: boolean
         link: string
@@ -58,4 +65,9 @@ export interface iconElementProps {
     name: keyof typeof iconButtonConfig
     direction: string
     clickFunction: Function
+}
+
+export interface deleteConfig {
+    active: boolean
+    popupDeleteConfig?: popupConfig
 }

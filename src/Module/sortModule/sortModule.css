@@ -20,8 +20,8 @@
 .sortModule > .SortElement > .sortArrow {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-left: 0.3125rem;
+  justify-content: space-between;
+  margin: 0.4rem 0 0.4rem 0.5rem;
 }
 .sortModule > .SortElement > .sortArrow > .triangle {
   border-left: 0.1875rem solid transparent;

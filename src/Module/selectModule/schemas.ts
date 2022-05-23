@@ -1,9 +1,11 @@
-import {ChangeEvent} from "react";
+import React from "react";
+import {filterActionType} from "../../generalReducer/filterReducer";
 
-export interface selectModuleType {
-    changeSelect: (event: ChangeEvent<HTMLSelectElement>) => void
-    value: string
-    data: {
+export interface FilterModuleType {
+    state: any,
+    dispatch: React.Dispatch<filterActionType>
+    config: {
+        name: string
         id: string
         textId: string
         index: any

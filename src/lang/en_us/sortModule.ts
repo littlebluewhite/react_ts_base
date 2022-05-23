@@ -11,3 +11,8 @@ export const groupSort = {
     "sortModule.title.group": "Group",
     "sortModule.title.latestUpdate": "Latest Update",
 }
+
+export const pluginsSort = {
+    "sortModule.title.pluginsSchemasName": "Name",
+    "sortModule.title.fileType": "File Type"
+}

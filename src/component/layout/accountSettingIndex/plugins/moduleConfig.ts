@@ -1,21 +1,26 @@
+import {clickMode, DataConfigType} from "../../../../Module/dataModule/schemas";
+import {fileTypeFilter} from "../../../../Module/selectModule/configLibrary";
+import {deletePlugins} from "../../../../Module/popupWindow/exampleConfig";
+
 export const pluginsTitleConfig = {
     search: true,
     editChangePage: {
-        active: false,
+        active: true,
         link: "/layout",
     },
     editOnPage: {
-        active: true,
+        active: false,
     },
     delete: {
-        active: false,
+        active: true,
+        popupDeleteConfig: {...deletePlugins}
     },
     createChangePage: {
-        active: false,
+        active: true,
         link: "/layout/accountSetting"
     },
     createOnPage: {
-        active: true,
+        active: false,
     },
     createFolder: {
         active: true,
@@ -39,7 +44,31 @@ export const pluginsTitleConfig = {
         active: false,
     },
     information: {
-        active: true,
+        active: false,
     },
-    pageControl: false
+    pageControl: true
+}
+
+export const pluginsFilterConfig = {
+    ...fileTypeFilter
+}
+
+export const pluginsSortConfig = {
+    block: "5%",
+    field: [
+        {title: "pluginsSchemasName", width: '75%'},
+        {title: "fileType", width: '20%'},
+    ]
+}
+
+export const pluginsDataConfig: DataConfigType = {
+    createFolder: true,
+    noDataTextId: "accountSetting.plugins.noData",
+    clickMode: clickMode.single,
+    checkKey: "pluginsSchemasName",
+    rowPhoto: "fileType",
+    row: {
+        "pluginsSchemasName": {width: '75%', photo: false},
+        "fileType": {width: '20%'}
+    }
 }

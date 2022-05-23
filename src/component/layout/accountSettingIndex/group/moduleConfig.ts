@@ -1,5 +1,3 @@
-import {sortConfigType} from "../../../../Module/sortModule/schemas";
-
 export const groupTitleConfig = {
     search: true,
     editChangePage: {
@@ -46,7 +44,9 @@ export const groupTitleConfig = {
     pageControl: false
 }
 
-export const groupSortConfig: sortConfigType[] = [
-    {title: "group", style: {width: '85%'}},
-    {title: "latestUpdate", style: {width: '15%'}},
-]
+export const groupSortConfig = {
+    field: [
+        {title: "group", width: '85%'},
+        {title: "latestUpdate", width: '15%'},
+    ]
+}

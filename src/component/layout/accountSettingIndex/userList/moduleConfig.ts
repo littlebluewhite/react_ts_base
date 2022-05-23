@@ -1,3 +1,5 @@
+import {deleteUserList} from "../../../../Module/popupWindow/exampleConfig";
+
 export const userListTitleConfig = {
     search: true,
     editChangePage: {
@@ -9,6 +11,7 @@ export const userListTitleConfig = {
     },
     delete: {
         active: true,
+        popupDeleteConfig: {...deleteUserList}
     },
     createChangePage: {
         active: true,

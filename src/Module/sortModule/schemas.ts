@@ -1,7 +1,10 @@
 import {sortActionType, sortInit} from "../../generalReducer/sortModule";
 
 export interface sortModuleProps {
-    config: sortConfigType[]
+    config: {
+        block?: string // ex: 10%
+        field: sortConfigType[]
+    }
     state: typeof sortInit
 
 
@@ -10,12 +13,12 @@ export interface sortModuleProps {
 
 export interface sortConfigType {
     title: string
-    style: Object
+    width: string
+    block?: string
 }
 
 export interface sortElementProps {
     item: sortConfigType
     state: typeof sortInit
-
     dispatch(action: sortActionType): void
 }

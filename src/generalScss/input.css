@@ -108,5 +108,28 @@ input.search[disabled] {
   border: 1px solid #8FCDCC;
   opacity: 0.4;
 }
+input input[type=radio] {
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+}
+input input[type=radio]:checked {
+  border: #FFFFFF 0.2rem solid;
+  background: #00262F;
+}
+input input[type=mutiple] {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 0.125rem;
+  box-sizing: border-box;
+}
+input input[type=mutiple]:checked {
+  -webkit-appearance: none;
+  background: #00262F;
+  border: white 0.2rem solid;
+}
 
 /*# sourceMappingURL=input.css.map */

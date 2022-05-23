@@ -11,3 +11,8 @@ export const groupSort = {
     "sortModule.title.group": "群組",
     "sortModule.title.latestUpdate": "更新時間",
 }
+
+export const pluginsSort = {
+    "sortModule.title.pluginsSchemasName": "名稱",
+    "sortModule.title.fileType": "档案类型"
+}

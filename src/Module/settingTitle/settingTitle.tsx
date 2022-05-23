@@ -1,19 +1,22 @@
 import "./settingTitle.css"
-import {settingTitleType} from "./schemas";
+import {deleteConfig, settingTitleType} from "./schemas";
 import {useIconButton} from "./cunstomHook";
 import {useNavigate} from "react-router-dom";
 import React, {Dispatch} from "react";
-import {settingMode} from "../../generalReducer/settingGeneral";
+import {settingGeneralActionType, settingMode} from "../../generalReducer/settingGeneral";
 import { PageControl } from "../pageControl/pageControl";
+import {usePopupWindow3} from "../popupWindow/popupWindow";
+import {popupWindow3Params} from "../popupWindow/schemas";
 
 //  use generalReducer "settingGeneral"
-export function SettingTitle({config, state, dispatch, data}: settingTitleType) {
+export function SettingTitle({config, state, dispatch, data, deleteFunc1=()=>{}, deleteFunc2=()=>{}}: settingTitleType) {
     function handleSearch(event: React.ChangeEvent<HTMLInputElement>){
         dispatch({
             type: "settingGeneral.setSearch",
             payload: event.target.value
         })
     }
+    const check = Object.keys(state.check).length !== 0
     return (
         <div className={"settingTitle"}>
             <div className={"leftContainer"}>
@@ -24,9 +27,10 @@ export function SettingTitle({config, state, dispatch, data}: settingTitleType) 
                         />
                     </div>
                 }
-                {state.settingMode === settingMode.watch && <EditChangePage config={config.editChangePage}/>}
                 {state.settingMode === settingMode.watch && <EditOnPage config={config.editOnPage} dispatch={dispatch}/>}
-                {state.settingMode === settingMode.watch && <Delete config={config.delete} dispatch={dispatch}/>}
+                {state.settingMode === settingMode.watch && check && <EditChangePage config={config.editChangePage}/>}
+                {state.settingMode === settingMode.watch && check &&
+                    <Delete config={config.delete} dispatch={dispatch} deleteFunc1={deleteFunc1} deleteFunc2={deleteFunc2}/>}
             </div>
             <div className={"rightContainer"}>
                 {state.settingMode === settingMode.watch && <CreateChangePage config={config.createChangePage}/>}
@@ -76,18 +80,26 @@ function EditOnPage({config, dispatch}: { config: { active: boolean }, dispatch:
     )
 }
 
-function Delete({config, dispatch}: { config: { active: boolean }, dispatch: Dispatch<any>}){
-    const clickFunction = () => {
-        dispatch({
-            type: "settingGeneral.setDeleteModel",
-            payload: true
-        })
+function Delete(
+    {config, dispatch, deleteFunc1, deleteFunc2}:
+        { config: deleteConfig, dispatch: Dispatch<settingGeneralActionType>, deleteFunc1: Function, deleteFunc2: Function}){
+    const params = {
+        config: config.popupDeleteConfig,
+        func1: deleteFunc1,
+        func2: deleteFunc2
     }
+
+    const [component, setIsOpen] = usePopupWindow3(params as popupWindow3Params)
+    function clickFunction(){
+         setIsOpen(true)
+    }
+
     const contain = useIconButton(
         {name:"delete", direction:"left", clickFunction:clickFunction})
     return (
         <>
             {config.active && contain}
+            {component}
         </>
     )
 }
@@ -126,7 +138,7 @@ function CreateFolder({config, dispatch}: { dispatch: Dispatch<any>, config: { a
     const clickFunction = () =>{
         dispatch({
             type: "settingGeneral.setStatus",
-            payload: settingMode.create
+            payload: settingMode.createFolder
         })
     }
     const contain = useIconButton(

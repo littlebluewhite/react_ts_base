@@ -15,12 +15,12 @@ export interface popupWindow2Params {
 }
 
 export interface popupWindow3Params{
-    config: confStructure
+    config: popupConfig
     func1?: Function
     func2?: Function
 }
 
-export interface confStructure {
+export interface popupConfig {
     page1: page1Structure
     page2: page2Structure
 }

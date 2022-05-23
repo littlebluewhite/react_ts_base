@@ -6,23 +6,23 @@ import { TextLanguage } from "../../component/textComponent";
 export function PageControl({state, dispatch, data}: pageControlType) {
 
     function toPreviousPage() {
-        if (state.current === 1) {
+        if (state.pagination.current === 1) {
             return
         } else {
             dispatch({
                 type: "pageControl.setCurrent",
-                payload: state.current - 1
+                payload: state.pagination.current - 1
             })
         }
     }
 
     function toNextPage() {
-        if (state.current >= data?.metadata?.maxPage) {
+        if (state.pagination.current >= data?.metadata?.maxPage) {
             return
         } else {
             dispatch({
                 type: "pageControl.setCurrent",
-                payload: state.current + 1
+                payload: state.pagination.current + 1
             })
         }
     }
@@ -30,17 +30,18 @@ export function PageControl({state, dispatch, data}: pageControlType) {
     return (
         <div className={"pageControl"}>
             <div className={"pageControlButton"}>
-                <div className={"arrowContainer" + (state.current === 1 ? "" : " active")}
+                <div className={"arrowContainer" + (state.pagination.current === 1 ? "" : " active")}
                      onClick={() => toPreviousPage()}>
-                    <div className={"arrow left" + (state.current === 1 ? "" : " active")}/>
+                    <div className={"arrow left" + (state.pagination.current === 1 ? "" : " active")}/>
                 </div>
-                <div className={"arrowContainer" + (state.current >= data?.metadata?.maxPage ? "" : " active")}
+                <div className={"arrowContainer" + (state.pagination.current >= data?.metadata?.maxPage ? "" : " active")}
                      onClick={() => toNextPage()}>
-                    <div className={"arrow right" + (state.current >= data?.metadata?.maxPage ? "" : " active")}/>
+                    <div className={"arrow right" + (state.pagination.current >= data?.metadata?.maxPage ? "" : " active")}/>
                 </div>
             </div>
             <div className={"pageControlText"}>{data?.metadata?.downNumber} — {data?.metadata?.upNumber}
-                <TextLanguage textId={"page.row1"}/> {data?.metadata?.totalCount}
+                &nbsp;
+                <TextLanguage textId={"page.row1"}/> {data?.metadata?.totalCount}&nbsp;
                 <TextLanguage textId={"page.row2"}/>
             </div>
         </div>

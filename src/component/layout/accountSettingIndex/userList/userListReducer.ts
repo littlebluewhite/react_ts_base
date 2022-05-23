@@ -4,16 +4,18 @@ import {
     settingGeneralReducer,
 } from "../../../../generalReducer/settingGeneral";
 import {pageControlActionType, pageControlInit, pageControlReducer} from "../../../../generalReducer/pageControl";
+import {filterActionType, filterReducer} from "../../../../generalReducer/filterReducer";
 
 export const userListStateInit = {
     ...settingGeneralInit,
     ...pageControlInit,
-    filterCondition: {"accessLevel": ""}
+    filter: {"accessLevel": ""}
 }
 
 export type userListActionType =
     settingGeneralActionType
     | pageControlActionType
+    | filterActionType
 
 
 export function userListReducer(
@@ -25,6 +27,8 @@ export function userListReducer(
             return settingGeneralReducer(state, action as settingGeneralActionType)
         case "pageControl":
             return pageControlReducer(state, action as pageControlActionType)
+        case "filter":
+            return filterReducer(state, action as filterActionType)
         default:
             throw new Error()
     }

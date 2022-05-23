@@ -85,6 +85,7 @@ export const common = {
     "header.underConstruction.test1": "測試 1",
     "header.underConstruction.test2": "測試 2",
     "header.underConstruction.test3": "測試 3",
+    "header.underConstruction.test4": "測試 4",
     "header.dashboard": "戰情室儀錶板",
     "header.dashboard.mainDashboard": "主要儀錶板",
 

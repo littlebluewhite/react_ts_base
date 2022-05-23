@@ -1,0 +1,72 @@
+.dataModule{
+    .dataRow {
+        height: 2.7rem;
+        display: flex;
+        align-items: center;
+        .clickMode {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .bty-switch {
+            position: relative;
+            border-radius: 4px;
+            background: rgba(232, 11, 137, 0.4);
+            width: 50px;
+            height: 6px;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+            border: #00262F 1px solid;
+        }
+
+        .bty-switch:checked {
+            position: relative;
+            border-radius: 4px;
+            background: rgba(0, 255, 148, 0.4);
+            width: 50px;
+            height: 6px;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+            border: #00262F 1px solid;
+        }
+
+        .bty-switch:after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            box-sizing: border-box;
+            top: -11px;
+            left: 33px;
+            border: #00262F .1rem solid;
+            background: radial-gradient(ellipse at center, red 35%, #00262F 60%);
+            border-radius: 50%;
+        }
+
+        .bty-switch:checked:after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            box-sizing: border-box;
+            top: -11px;
+            left: -11px;
+            border: #00262F .1rem solid;
+            background: radial-gradient(ellipse at center, #00FF94 35%, #00262F 60%);
+            border-radius: 50%;
+        }
+        .dataElement {
+            display: flex;
+            color: #FFFFFF;
+            font-size: 1.25rem;
+        }
+
+        &:nth-child(even) {
+            background: #033440;
+        }
+
+        &:hover {
+            background: #495B7C;
+        }
+    }
+}

@@ -1,11 +1,12 @@
 import {allSelectData} from "../Module/selectModule/mergeSelect";
 import {timestampToFormatTime} from "./convertFunction";
+import {pageControlInit} from "../generalReducer/pageControl";
 
-export function eventFilter(data: any[], filterCondition: any) {
+export function eventFilter(data: any[], filters: {[key: string]: string}) {
     return data.filter((datum) => {
-        for (let filter in filterCondition) {
-            if (filterCondition.hasOwnProperty(filter)) {
-                if (datum[filter].toString() !== filterCondition[filter].toString() && filterCondition[filter] !== "") {
+        for (let filter in filters) {
+            if (filters.hasOwnProperty(filter)) {
+                if (datum[filter].toString() !== filters[filter].toString() && filters[filter] !== "") {
                     return false
                 }
             }
@@ -18,7 +19,7 @@ export function eventSearch(data: any[], search: string, langPackage: any = {}) 
     return data.filter((datum) => {
         for (let attr in datum) {
             if (attr in allSelectData && datum.hasOwnProperty(attr)) {
-                if (langPackage[allSelectData[attr].data[allSelectData[attr].index[datum[attr]]].textId].indexOf(search.toString()) !== -1) {
+                if (langPackage[allSelectData[attr]["option"][allSelectData[attr].index[datum[attr]]].textId].indexOf(search.toString()) !== -1) {
                     return true
                 }
             } else if ((attr === "loginTime" || attr === "time") &&
@@ -63,4 +64,12 @@ export function eventSort(data: any[], sortCondition: [string, boolean]) {
         result.reverse()
     }
     return result
+}
+
+export function getPageRange(pagination: typeof pageControlInit.pagination, dataLength: number){
+    const downNumber = (pagination.current - 1) * pagination.pageSize + 1
+    let upNumber = (pagination.current - 1) * pagination.pageSize
+    dataLength - downNumber < pagination.pageSize ? upNumber += (dataLength - downNumber + 1) :
+        upNumber += pagination.pageSize
+    return {downNumber, upNumber}
 }

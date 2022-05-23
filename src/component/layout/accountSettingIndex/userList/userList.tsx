@@ -3,8 +3,9 @@ import {userListTitleConfig} from "./moduleConfig";
 import "./userList.css"
 import {useReducer} from "react";
 import {userListReducer, userListStateInit} from "./userListReducer";
-import {SelectModule} from "../../../../Module/selectModule/selectModule";
-import {accessLevelFilter} from "../../../../Module/selectModule/dataLibrary";
+import {FilterModule} from "../../../../Module/selectModule/selectModule";
+import {accessLevelFilter} from "../../../../Module/selectModule/configLibrary";
+import {settingTitleDispatch, settingTitleState} from "../../../../Module/settingTitle/schemas";
 
 
 export function UserList() {
@@ -12,10 +13,9 @@ export function UserList() {
     const data = {}
     return (
         <>
-            <SettingTitle config={userListTitleConfig} state={state} dispatch={dispatch} data={data}/>
+            <SettingTitle config={userListTitleConfig} state={state as settingTitleState} dispatch={dispatch as settingTitleDispatch} data={data}/>
             <div className={"userListFilterContainer"}>
-                <SelectModule changeSelect={() => {
-                }} value={""} data={accessLevelFilter}/>
+                <FilterModule dispatch={dispatch} state={state} config={accessLevelFilter}/>
             </div>
         </>
     )

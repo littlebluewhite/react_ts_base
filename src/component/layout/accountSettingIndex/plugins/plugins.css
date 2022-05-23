@@ -1,3 +1,92 @@
-
+.pluginsStructure .filterContainer {
+  margin: 2rem 0;
+  display: flex;
+}
+.pluginsStructure .filterContainer .secondary_button {
+  margin-left: 2rem;
+}
+.pluginsStructure .pluginsLayers {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: scroll;
+  margin: 0 0 1rem 0;
+}
+.pluginsStructure .pluginsLayers .svgContainer.folder {
+  margin-right: 0.4rem;
+  background-image: url("../../../../image/svg/folder.svg");
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.pluginsStructure .pluginsLayers .link {
+  cursor: pointer;
+  color: rgba(0, 234, 255, 0.7);
+}
+.pluginsStructure .pluginsLayers .link:hover {
+  color: #00EAFF;
+}
+.pluginsStructure .pluginsLayers .slash {
+  cursor: default;
+  color: #ffffff;
+  margin: 0 0.3rem;
+}
+.pluginsStructure .dataModule .createFolder {
+  padding: 0 0 0 3%;
+  width: 100%;
+  height: 3.5rem;
+}
+.pluginsStructure .dataModule .createFolder form {
+  height: 100%;
+}
+.pluginsStructure .dataModule .createFolder .firstLine {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.pluginsStructure .dataModule .createFolder .firstLine .leftContainer {
+  align-items: center;
+  display: flex;
+  height: 2rem;
+  width: 78%;
+}
+.pluginsStructure .dataModule .createFolder .firstLine .leftContainer .svgContainer.folder2 {
+  width: 1.5rem;
+  height: 1.25rem;
+  background-image: url("../../../../image/svg/folder2.svg");
+  margin: 0 1rem 0 0;
+}
+.pluginsStructure .dataModule .createFolder .firstLine .leftContainer input {
+  width: 14.5rem;
+}
+.pluginsStructure .dataModule .createFolder .firstLine .rightContainer {
+  display: flex;
+  width: 17%;
+}
+.pluginsStructure .dataModule .createFolder .firstLine .rightContainer .hasMargin {
+  margin: 0 0 0 1.25rem;
+}
+.pluginsStructure .dataModule .noDataContainer {
+  margin: 0 0 1.5rem 0;
+  border: 1px solid #8FCDCC;
+  text-align: center;
+  color: white;
+  line-height: 2.5rem;
+  font-size: 1.25rem;
+}
+.pluginsStructure .dataModule .svgContainer.fileType-0 {
+  cursor: pointer;
+  height: 1.25rem;
+  background-image: url("../../../../image/svg/folder_standard.svg");
+}
+.pluginsStructure .dataModule .svgContainer.fileType-0:hover {
+  background-image: url("../../../../image/svg/folder_hover.svg");
+}
+.pluginsStructure .dataModule .svgContainer.fileType-0:active {
+  background-image: url("../../../../image/svg/folder_standard.svg");
+}
+.pluginsStructure .dataModule .svgContainer.fileType-1 {
+  height: 1.5rem;
+  background-image: url("../../../../image/svg/csv.svg");
+}
 
 /*# sourceMappingURL=plugins.css.map */

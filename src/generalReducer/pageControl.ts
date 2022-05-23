@@ -1,10 +1,12 @@
 import update from "immutability-helper";
 
 export const pageControlInit = {
-    current: 1,
-    pageSize: 50,
-    showSizeChanger: true,
-    pageSizeOptions: [20, 50],
+    pagination: {
+        current: 1,
+        pageSize: 50,
+        showSizeChanger: true,
+        pageSizeOptions: [20, 50],
+    }
 }
 
 export type pageControlActionType =
@@ -18,13 +20,13 @@ export function pageControlReducer(
 ) {
     switch (action.type) {
         case "pageControl.setCurrent":
-            return update(state, {current: {$set: action.payload}})
+            return update(state, {pagination:{current: {$set: action.payload}}})
         case "pageControl.setPageSize":
-            return update(state, {pageSize: {$set: action.payload}})
+            return update(state, {pagination:{pageSize: {$set: action.payload}}})
         case "pageControl.setShowSizeChanger":
-            return update(state, {showSizeChanger: {$set: action.payload}})
+            return update(state, {pagination:{showSizeChanger: {$set: action.payload}}})
         case "pageControl.setPageSizeOptions":
-            return update(state, {pageSizeOptions: {$set: action.payload}})
+            return update(state, {pagination:{pageSizeOptions: {$set: action.payload}}})
         default:
             throw new Error()
     }

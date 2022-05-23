@@ -1,4 +1,4 @@
-.selectContainer {
+.FilterModule {
   display: flex;
   align-items: center;
 
@@ -17,6 +17,7 @@
     line-height: 2.375rem;
     padding-left: 0.9375rem;
     margin: 0 0 0 1rem;
+    width: 12rem;
 
     &:focus {
       background-color: #495b7c;

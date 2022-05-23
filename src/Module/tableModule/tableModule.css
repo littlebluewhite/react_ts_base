@@ -1,0 +1,88 @@
+@charset "UTF-8";
+.tableModule {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapswitch {
+  /*==設定開關鈕的長寬==*/
+  position: absolute;
+  right: 182px;
+  top: 592px;
+  width: 65px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.switch-checkbox {
+  position: absolute;
+  display: none;
+}
+
+.switch-label {
+  height: 15px;
+  width: 45px;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.switch-txt {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+
+.switch-txt::before,
+.switch-txt::after {
+  display: block;
+  float: right;
+  width: 50%;
+  font-size: 13px;
+  color: #fff;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+/*==開關鈕底色(開啟時)==*/
+.switch-txt::after {
+  content: attr(turnOn);
+  padding-left: 10px;
+  background: linear-gradient(270deg, #14D098 50%, #5BF1CD 100%);
+  color: #14D098;
+}
+
+/*開關鈕底色(關閉時)*/
+.switch-txt::before {
+  content: attr(turnOff);
+  padding-right: 10px;
+  background: #A0A0A0;
+  color: #A0A0A0;
+  text-align: right;
+}
+
+/*==開關鈕的顏色與大小==*/
+.switch-Round-btn {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+  background: #FEFEFE;
+  top: -5px;
+  right: 45px;
+  border-radius: 13px;
+  transition: all 0.3s ease-in 0s;
+}
+
+.switch-checkbox:checked + .switch-label .switch-txt {
+  margin-left: 0;
+}
+
+.switch-checkbox:checked + .switch-label .switch-Round-btn {
+  right: 10px;
+}
+
+/*# sourceMappingURL=tableModule.css.map */

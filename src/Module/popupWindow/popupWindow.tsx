@@ -120,6 +120,7 @@ export function usePopupWindow3(  // two windows
 
     function handlePage2() {
         func2()
+        setStatus(popupStatus.page1)
         setIsOpen(false)
     }
 
