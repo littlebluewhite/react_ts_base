@@ -3,12 +3,13 @@ import "./pageControl.css"
 import { TextLanguage } from "../../component/textComponent";
 
 // use generalReducer "pageControl"
-export function PageControl({state, dispatch, data}: pageControlType) {
+export function PageControl({state, dispatch, data, additionalFunc=()=>{}}: pageControlType) {
 
     function toPreviousPage() {
         if (state.pagination.current === 1) {
             return
         } else {
+            additionalFunc()
             dispatch({
                 type: "pageControl.setCurrent",
                 payload: state.pagination.current - 1
@@ -20,6 +21,7 @@ export function PageControl({state, dispatch, data}: pageControlType) {
         if (state.pagination.current >= data?.metadata?.maxPage) {
             return
         } else {
+            additionalFunc()
             dispatch({
                 type: "pageControl.setCurrent",
                 payload: state.pagination.current + 1

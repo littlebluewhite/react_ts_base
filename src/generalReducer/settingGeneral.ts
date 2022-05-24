@@ -12,7 +12,8 @@ export const settingGeneralInit = {
     search: "",
     isChange: false,
     rawData: [] as any[],
-    check: {} as { [key: string]: string }
+    check: {} as { [key: string]: any },
+    layers: [] as string[]
 }
 
 export type settingGeneralActionType =
@@ -21,6 +22,7 @@ export type settingGeneralActionType =
     | { type: "settingGeneral.setIsChange", payload: boolean }
     | { type: "settingGeneral.setRawData", payload: any[] }
     | { type: "settingGeneral.setCheck", payload: { [key: string]: string } }
+ | { type: "settingGeneral.setLayers", payload: string[] }
 
 
 export function settingGeneralReducer(
@@ -37,6 +39,8 @@ export function settingGeneralReducer(
             return update(state, {rawData: {$set: action.payload}})
         case "settingGeneral.setCheck":
             return update(state, {check: {$set: action.payload}})
+        case "settingGeneral.setLayers":
+            return update(state, {layers: {$set: action.payload as string[]}})
         default:
             throw new Error()
     }

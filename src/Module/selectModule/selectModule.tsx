@@ -5,8 +5,9 @@ import {useLang} from "../../generalFunction/providerHook";
 import React, {ChangeEvent} from "react";
 
 // reducer use filterReducer
-export function FilterModule({state, dispatch, config}: FilterModuleType){
+export function FilterModule({state, dispatch, config, additionalFunc=()=>{}}: FilterModuleType){
     function changeSelect(event: ChangeEvent<HTMLSelectElement>){
+        additionalFunc()
         dispatch({
             type: "filter.setFilter",
             payload: {

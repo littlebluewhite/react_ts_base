@@ -1,6 +1,6 @@
 .model > .page1 {
-  width: 560px;
-  height: 370px;
+  width: 40rem;
+  height: 23.125rem;
 }
 .model > .page1 > .head {
   height: 50%;
@@ -9,46 +9,49 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px 10px 0px 0px;
-  font-size: 34px;
-  line-height: 49px;
+  border-radius: 0.625rem 0.625rem 0 0;
+  font-size: 2.125rem;
+  line-height: 3.08rem;
   color: #FFFFFF;
 }
 .model > .page1 > .body {
   background: #FFFFFF;
   width: 100%;
   height: 50%;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0 0 0.625rem 0.625rem;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 .model > .page1 > .body > button {
-  border-radius: 10px;
-  width: 210px;
-  height: 70px;
+  border-radius: 0.625rem;
+  width: 13.125rem;
+  height: 4.375rem;
   background: linear-gradient(57.58deg, #024A5B 53.44%, #495B7C 100%);
+  box-shadow: 0 12px 36px rgba(73, 91, 124, 0.48);
   color: #FFFFFF;
-  font-family: "Noto Sans SC";
-  font-style: normal;
-  font-size: 28px;
-  margin: 0px 22px 0px 23px;
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0 1.3125rem;
 }
 .model > .page2 {
-  width: 530px;
-  height: 550px;
+  width: 33.125rem;
+  height: 34.375rem;
 }
 .model > .page2 > .head {
   height: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   background: linear-gradient(57.58deg, #00262F 53.44%, #495B7C 100%);
-  border-radius: 10px 10px 0px 0px;
-  font-size: 34px;
-  font-family: "Noto Sans SC";
-  font-style: normal;
+  border-radius: 0.625rem 0.625rem 0 0;
+  font-size: 2.125rem;
+  font-family: "Noto Sans SC", sans-serif;
+}
+.model > .page2 > .head img {
+  height: 6rem;
 }
 .model > .page2 > .body {
   height: 60%;
@@ -57,18 +60,25 @@
   justify-content: center;
   align-items: center;
   background: #FFFFFF;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0 0 0.625rem 0.625rem;
   color: #8D97AD;
-  font-size: 24px;
+  font-size: 1.5rem;
+  padding: 0 4rem;
+}
+.model > .page2 > .body .text {
+  text-align: center;
+  line-height: 2.3rem;
 }
 .model > .page2 > .body > button {
   background: linear-gradient(57.58deg, #024A5B 53.44%, #495B7C 100%);
+  box-shadow: 0 12px 36px rgba(73, 91, 124, 0.48);
   color: #FFFFFF;
-  width: 210px;
-  height: 70px;
-  border-radius: 10px;
-  font-size: 28px;
-  margin-top: 45px;
+  width: 13.125rem;
+  height: 4.375rem;
+  border-radius: 0.625rem;
+  font-size: 1.75rem;
+  margin-top: 2.8125rem;
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=popupWindow.css.map */

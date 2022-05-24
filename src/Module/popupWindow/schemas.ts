@@ -4,31 +4,25 @@ export enum popupStatus {
     page2,
 }
 
-export interface popupWindow1Params {
-    config: {page1: page1Structure}
-    func1?: Function
+export interface popupWindow1Config {
+    page1: page1Structure
 }
 
-export interface popupWindow2Params {
-    config: {page2: page2Structure}
-    func2?: Function
+export interface popupWindow2Config {
+    page2: page2Structure
 }
 
-export interface popupWindow3Params{
-    config: popupConfig
-    func1?: Function
-    func2?: Function
-}
-
-export interface popupConfig {
+export interface popupWindow3Config {
     page1: page1Structure
     page2: page2Structure
 }
 
 interface page1Structure {
     title: string
+    checkKey?: string
     button1: string
     button2: string
+    func?: Function
 }
 
 interface page2Structure {
@@ -36,4 +30,5 @@ interface page2Structure {
     context: string
     button: string
     titleImage: string
+    func?: Function
 }

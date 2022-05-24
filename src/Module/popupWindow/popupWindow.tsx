@@ -1,5 +1,5 @@
 import './popupWindow.css'
-import {popupStatus, popupWindow1Params, popupWindow2Params, popupWindow3Params} from "./schemas"
+import {popupStatus, popupWindow1Config, popupWindow2Config, popupWindow3Config} from "./schemas"
 import {ParentModel} from "../../component/parentComponent"
 import React, {useState} from 'react'
 import {TextLanguage} from '../../component/textComponent'
@@ -10,6 +10,7 @@ import {TextLanguage} from '../../component/textComponent'
 //     config: {
 //             'page1':{
 //                 'title': 'popupWindow.save1.title',
+//                 'checkKey': '',
 //                 'button1':'popupWindow.save1.button1',
 //                 'button2':'popupWindow.save1.button2',
 //             },
@@ -17,11 +18,13 @@ import {TextLanguage} from '../../component/textComponent'
 //     func1?: ()=>console.log(1),
 // }
 export function usePopupWindow1(  // only page2
-    {config, func1 = () => {}}: popupWindow1Params) {
+    config: popupWindow1Config) {
     const [isOpen, setIsOpen] = useState<Boolean>(false)
 
-    function handlePage1() {
-        func1()
+    async function handlePage1() {
+        if (config.page1.func){
+            await config.page1.func()
+        }
         setIsOpen(false)
     }
     const component = (isOpen &&
@@ -60,11 +63,13 @@ export function usePopupWindow1(  // only page2
 //     func2?: ()=>console.log(2)
 // }
 export function usePopupWindow2(  // only page2
-    {config, func2 = () => {}}: popupWindow2Params) {
+    config: popupWindow2Config) {
     const [isOpen, setIsOpen] = useState<Boolean>(false)
 
-    function handlePage2() {
-        func2()
+    async function handlePage2() {
+        if (config.page2.func){
+            await config.page2.func()
+        }
         setIsOpen(false)
     }
 
@@ -92,36 +97,48 @@ export function usePopupWindow2(  // only page2
 
 // params example
 // const params = {
-//     config: {
-//             'page1':{
-//                 'title': 'popupWindow.save1.title',
-//                 'button1':'popupWindow.save1.button1',
-//                 'button2':'popupWindow.save1.button2',
-//             },
-//             'page2':{
-//                 'title': 'popupWindow.save2.title',
-//                 'context': 'popupWindow.save2.context',
-//                 'button': 'popupWindow.save2.button',
-//                 'titleImage': saveIcon,
-//             }
+//     'page1':{
+//         'title': 'popupWindow.save1.title',
+//         'checkKey': '',
+//         'button1':'popupWindow.save1.button1',
+//         'button2':'popupWindow.save1.button2',
+//         func?: ()=>console.log(1),
 //     },
-//     func1?: ()=>console.log(1),
-//     func2?: ()=>console.log(2)
+//     'page2':{
+//         'title': 'popupWindow.save2.title',
+//         'context': 'popupWindow.save2.context',
+//         'button': 'popupWindow.save2.button',
+//         'titleImage': saveIcon,
+//         func?: ()=>console.log(2)
+//     }
 // }
 export function usePopupWindow3(  // two windows
-    {config, func1 = () => {}, func2 = () => {}}: popupWindow3Params) {
+    config: popupWindow3Config) {
     const [isOpen, setIsOpen] = useState<Boolean>(false)
     const [status, setStatus] = useState<popupStatus>(popupStatus.page1)
 
-    function handlePage1() {
-        func1()
-        setStatus(popupStatus.page2)
+    async function handlePage1() {
+        try{
+            if (config.page1.func){
+                await config.page1.func()
+            }
+            setStatus(popupStatus.page2)
+        }catch (e: any) {
+            console.log(e)
+            alert(Object.values(await e.json())[0])
+        }
     }
 
-    function handlePage2() {
-        func2()
-        setStatus(popupStatus.page1)
-        setIsOpen(false)
+    async function handlePage2() {
+        try{
+            if(config.page2.func){
+                await config.page2.func()
+            }
+            setStatus(popupStatus.page1)
+            setIsOpen(false)
+        }catch (e: any){
+            alert(Object.values(await e.json())[0])
+        }
     }
 
     const content1 = (
@@ -129,6 +146,7 @@ export function usePopupWindow3(  // two windows
             <div className="page1">
                 <div className="head">
                     <TextLanguage textId={config.page1.title}/>
+                    {config.page1.checkKey}
                 </div>
                 <div className="body">
                     <button onClick={() => setIsOpen(false)}><TextLanguage textId={config.page1.button1}/></button>
@@ -147,7 +165,9 @@ export function usePopupWindow3(  // two windows
                     <TextLanguage textId={config.page2.title}/>
                 </div>
                 <div className="body">
-                    <TextLanguage textId={config.page2.context}/>
+                    <div className={"text"}>
+                        <TextLanguage textId={config.page2.context}/>
+                    </div>
                     <button onClick={() => handlePage2()}><TextLanguage textId={config.page2.button}/></button>
                 </div>
             </div>

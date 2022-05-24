@@ -5,46 +5,54 @@ import {saveCancelControlProps} from "./schemas";
 import {settingMode} from "../../generalReducer/settingGeneral";
 import {usePopupWindow1, usePopupWindow2} from "../popupWindow/popupWindow";
 import {cancelConfig, saveConfig2} from "../popupWindow/exampleConfig";
+import update from "immutability-helper";
 
 // reducer use settingGeneral
 export function SaveCancelControl({state, dispatch, saveFunction, cancelFunction}: saveCancelControlProps) {
-    const cancelParams = {
-        config: {...cancelConfig},
-        func1: ()=>{
-            cancelFunction()
-            dispatch({
-                type: "settingGeneral.setStatus",
-                payload: settingMode.watch
-            })
-            dispatch({
-                type: "settingGeneral.setIsChange",
-                payload: false
-            })
+    const popupCancelConfig = update(cancelConfig, {
+        page1: {
+            func: {
+                $set: () => {
+                    cancelFunction()
+                    dispatch({
+                        type: "settingGeneral.setStatus",
+                        payload: settingMode.watch
+                    })
+                    dispatch({
+                        type: "settingGeneral.setIsChange",
+                        payload: false
+                    })
+                }
+            }
         }
-    }
+    })
 
-    const saveParams = {
-        config: {...saveConfig2},
-        func2: async ()=>{
-            saveFunction()
-            dispatch({
-                type: "settingGeneral.setStatus",
-                payload: settingMode.watch
-            })
-            dispatch({
-                type: "settingGeneral.setIsChange",
-                payload: false
-            })
+    const popupSaveConfig = update(saveConfig2, {
+            page2: {
+                func: {
+                    $set: async () => {
+                        saveFunction()
+                        dispatch({
+                            type: "settingGeneral.setStatus",
+                            payload: settingMode.watch
+                        })
+                        dispatch({
+                            type: "settingGeneral.setIsChange",
+                            payload: false
+                        })
+                    }
+                }
+            }
         }
-    }
+    )
 
-    const [popCancel, setCancelOpen] = usePopupWindow1(cancelParams)
-    const [popSave, setSaveOpen] = usePopupWindow2(saveParams)
+    const [popCancel, setCancelOpen] = usePopupWindow1(popupCancelConfig)
+    const [popSave, setSaveOpen] = usePopupWindow2(popupSaveConfig)
 
-    function handleCancel(){
-        if (state.isChange){
+    function handleCancel() {
+        if (state.isChange) {
             setCancelOpen(true)
-        }else{
+        } else {
             dispatch({
                 type: "settingGeneral.setStatus",
                 payload: settingMode.watch
@@ -52,7 +60,7 @@ export function SaveCancelControl({state, dispatch, saveFunction, cancelFunction
         }
     }
 
-    async function handleSave(){
+    async function handleSave() {
         setSaveOpen(true)
     }
 
@@ -64,11 +72,11 @@ export function SaveCancelControl({state, dispatch, saveFunction, cancelFunction
                 <div className={"saveCancelControl"}>
                     <div className={"buttonContainer"}>
                         <button className={"secondary_button save"} disabled={!state.isChange}
-                                onClick={()=>handleSave()}
+                                onClick={() => handleSave()}
                         >
                             <TextLanguage textId={"button.save"}/>
                         </button>
-                        <button className={"secondary_button"} onClick={()=>handleCancel()}>
+                        <button className={"secondary_button"} onClick={() => handleCancel()}>
                             <TextLanguage textId={"button.cancel"}/>
                         </button>
                     </div>

@@ -1,12 +1,17 @@
 import {clickMode, DataConfigType} from "../../../../Module/dataModule/schemas";
 import {fileTypeFilter} from "../../../../Module/selectModule/configLibrary";
 import {deletePlugins} from "../../../../Module/popupWindow/exampleConfig";
+import {settingTitleConfigType} from "../../../../Module/settingTitle/schemas";
 
-export const pluginsTitleConfig = {
+export const pluginsTitleConfig: settingTitleConfigType = {
     search: true,
     editChangePage: {
         active: true,
         link: "/layout",
+        condition: (state: any) => {
+            const name = Object.keys(state.check)[0]
+            return name.slice(-3) === "csv";
+        }
     },
     editOnPage: {
         active: false,
@@ -62,11 +67,17 @@ export const pluginsSortConfig = {
 }
 
 export const pluginsDataConfig: DataConfigType = {
-    createFolder: true,
     noDataTextId: "accountSetting.plugins.noData",
     clickMode: clickMode.single,
     checkKey: "pluginsSchemasName",
-    rowPhoto: "fileType",
+    rowPhoto: {
+        field: "fileType",
+        item: {
+            "fileType-0": {
+                hoverTextId: "accountSetting.plugins.openFolder",
+            }
+        }
+    },
     row: {
         "pluginsSchemasName": {width: '75%', photo: false},
         "fileType": {width: '20%'}

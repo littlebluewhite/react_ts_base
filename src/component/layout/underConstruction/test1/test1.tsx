@@ -2,13 +2,11 @@ import {usePopupWindow3} from "../../../../Module/popupWindow/popupWindow";
 import {saveConfig} from "../../../../Module/popupWindow/exampleConfig";
 
 export function Test1(){
-    const params = {
-        config: {...saveConfig},
-        func1: ()=>console.log(1),
-        func2: ()=>console.log(2)
+    const config = {
+        ...saveConfig
     }
 
-    const [component , setIsOpen]=usePopupWindow3(params)
+    const [component , setIsOpen]=usePopupWindow3(config)
     return (
         <div>
              <button onClick={()=>setIsOpen(true)}>儲存</button>

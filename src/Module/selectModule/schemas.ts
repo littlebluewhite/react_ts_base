@@ -11,6 +11,7 @@ export interface FilterModuleType {
         index: any
         option: optionType[]
     }
+    additionalFunc?: Function
 }
 
 export interface optionType {

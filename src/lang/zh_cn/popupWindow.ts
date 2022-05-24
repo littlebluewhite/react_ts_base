@@ -12,3 +12,9 @@ export const cancel = {
     'popupWindow.save1.button1': '返回',
     'popupWindow.save1.button2': '离开',
 }
+
+export const deleteConfig = {
+    "popupWindow.deleteSuccessful": "删除成功",
+    "popupWindow.deletePlugins.title": "删除插件 : ",
+    "popupWindow.deletePlugins.context": "插件结构已经被删除成功"
+}

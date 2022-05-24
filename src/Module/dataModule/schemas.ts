@@ -1,27 +1,30 @@
-import {dataActionType, dataInit} from "../../generalReducer/dataReducer";
+import {settingGeneralActionType, settingGeneralInit} from "../../generalReducer/settingGeneral";
+import React from "react";
 
 export interface dataModuleProps {
-    config:any
-    data:object[]
-    style:object[]
-    state:typeof dataInit
-    dispatch(action: dataActionType): void
+    config: DataConfigType
+    data: any[]
+    state: typeof settingGeneralInit
+    dispatch: React.Dispatch<settingGeneralActionType>
 }
 
-export interface dataContainerProps {
-    config:any
-    row:object
-    style:object[]
-    state:typeof dataInit
-    dispatch(action: dataActionType): void
+export interface dataRowProps {
+    data: any[]
+    config: DataConfigType
+    dispatch: React.Dispatch<settingGeneralActionType>
+    state: typeof settingGeneralInit
 }
 
 export interface dataElementProps {
-    element:string
-    style:object
+    field: string
+    value: string
+    config: {
+        width: string
+        photo?: boolean
+    }
 }
 
-export enum clickMode{
+export enum clickMode {
     close,
     single,
     multiple,
@@ -29,15 +32,34 @@ export enum clickMode{
 }
 
 export interface DataConfigType {
-    createFolder?: boolean
     noDataTextId: string
     clickMode: clickMode
     checkKey?: string
-    rowPhoto?: string // look which field
+    rowPhoto?: rowPhotoType
     row: {
         [key: string]: {
             width: string,
             photo?: boolean
         }
     }
+}
+
+export interface rowPhotoType {
+    field: string // look which field
+    item?: {
+        [key: string]: {
+            hoverTextId?: string
+            clickFunc?: Function
+        }
+    }
+}
+
+export interface createFolderProps {
+    dispatch: React.Dispatch<settingGeneralActionType>
+    state: typeof settingGeneralInit
+}
+
+export interface rowPhotoProps{
+    item: any
+    rowPhoto: rowPhotoType
 }

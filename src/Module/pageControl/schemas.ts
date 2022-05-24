@@ -5,4 +5,5 @@ export interface pageControlType {
     state: typeof pageControlInit
     dispatch: Dispatch<pageControlActionType>
     data: any
+    additionalFunc?: Function
 }

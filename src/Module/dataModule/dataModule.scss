@@ -55,6 +55,12 @@
             background: radial-gradient(ellipse at center, #00FF94 35%, #00262F 60%);
             border-radius: 50%;
         }
+        .svgContainer{
+            position: relative;
+            .hoverText{
+                bottom: -2rem;
+            }
+        }
         .dataElement {
             display: flex;
             color: #FFFFFF;
@@ -67,6 +73,11 @@
 
         &:hover {
             background: #495B7C;
+        }
+
+        &.active {
+            background: #495B7C;
+            box-shadow: inset 0 0 8px 3px rgb(143 205 204 / 55%);
         }
     }
 }

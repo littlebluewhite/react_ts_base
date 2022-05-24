@@ -1,6 +1,7 @@
 import React from "react";
 import {pluginsActionType, pluginsStateInit} from "./pluginsReducer";
 import {DataConfigType} from "../../../../Module/dataModule/schemas";
+import {settingGeneralActionType, settingGeneralInit} from "../../../../generalReducer/settingGeneral";
 
 export interface pluginsLayersProps {
     dispatch: React.Dispatch<pluginsActionType>
@@ -19,23 +20,5 @@ export interface dataModuleProps {
     config: DataConfigType
 }
 
-export interface createFolderProps {
-    dispatch: React.Dispatch<pluginsActionType>
-    state: typeof pluginsStateInit
-}
 
-export interface dataRowProps {
-    data: any[]
-    config: DataConfigType
-    dispatch: React.Dispatch<pluginsActionType>
-    state: typeof pluginsStateInit
-}
 
-export interface dataElementProps {
-    field: string
-    value: string
-    config:{
-        width: string
-        photo?: boolean
-    }
-}

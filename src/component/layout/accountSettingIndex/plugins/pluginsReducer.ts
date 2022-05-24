@@ -6,18 +6,15 @@ import {
 import {filterActionType, filterReducer} from "../../../../generalReducer/filterReducer";
 import {sortActionType, sortReducer} from "../../../../generalReducer/sortModule";
 import {pageControlActionType, pageControlInit, pageControlReducer} from "../../../../generalReducer/pageControl";
-import update from "immutability-helper";
 
 export const pluginsStateInit = {
     ...settingGeneralInit,
     ...pageControlInit,
     sort: ["pluginsSchemasName", false] as [string, boolean],
-    filter: {"fileType": ""},
-    layers: [] as string[]
+    filter: {"fileType": ""}
 }
 
 export type pluginsActionType =
-    | { type: "setLayers", payload: string[] }
     | settingGeneralActionType
     | pageControlActionType
     | filterActionType
@@ -36,7 +33,5 @@ export function pluginsReducer(
             return filterReducer(state, action as filterActionType)
         case "sortModule":
             return sortReducer(state, action as sortActionType)
-        case "setLayers":
-            return update(state, {layers: {$set: action.payload as string[]}})
     }
 }
