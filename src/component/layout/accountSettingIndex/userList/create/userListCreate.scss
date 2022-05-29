@@ -1,0 +1,138 @@
+.userListCreateEditor{
+  form{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    input{
+      font-size: 1.25rem;
+      color: #8FCDCC;
+      width: 100%;
+    }
+    select {
+      width: 100%;
+      background-image: url("../../../../../image/svg/selectDown.svg");
+      background-size: 0.625rem 0.4375rem;
+      background-position: top 60% right 2%;
+      background-repeat: no-repeat;
+    }
+  }
+  .upContainer{
+    padding: 0 1.9% 0 1.9%;
+    .title{
+      font-weight: bold;
+      color: #FFFFFF;
+      margin: 1.25rem 0 0 0;
+    }
+    .informationContainer{
+      display: flex;
+      .leftContainer{
+        box-sizing: border-box;
+        width: 50%;
+        padding: 0 3% 0 2%;
+        .item{
+          align-items: center;
+          margin: 1rem 0;
+          justify-content: space-between;
+          display: flex;
+          .name{
+            width: 40%;
+            color: #8FCDCC;
+            &.user{
+              color: rgba(143, 205, 204, 0.35);
+            }
+            &.accountLevel{
+              display: flex;
+            }
+          }
+          .value{
+            width: 60%;
+            border-bottom: 1px solid #8FCDCC;
+            position: relative;
+            .accessLevel_choice-1{
+              label{
+                display: none;
+              }
+              select{
+                width: 100%;
+                margin: 0;
+                background-color: transparent;
+                border-radius: 0;
+                padding-left: .2rem;
+                &:focus{
+                  background-color: #495b7c;
+                }
+              }
+            }
+            .svgContainer{
+              &.correct{
+                background-image: url("../../../../../image/svg/correct.svg");
+                width: 1.25rem;
+                height: 1.25rem;
+                position: absolute;
+                right: 0;
+                top: 0
+              }
+            }
+            &.user{
+              color: rgba(143, 205, 204, 0.35);
+            }
+            &.checkPassword{
+              position: relative;
+            }
+            .message{
+              font-size: 1rem;
+              color: red;
+              position: absolute;
+              bottom: 0;
+              left: 100%;
+              width: fit-content;
+            }
+          }
+        }
+        &.address{
+          width: 100%;
+          padding-right: 2%;
+          .item{
+            margin-top: 0;
+            .name{
+              width: 18.7%;
+            }
+            .value{
+              width: 81.3%;
+            }
+          }
+        }
+      }
+      .rightContainer{
+
+        box-sizing: border-box;
+        width: 50%;
+        padding: 0 2% 0 3%;
+        .item{
+          align-items: center;
+          margin: 1rem 0;
+          display: flex;
+          .name{
+            width: 40%;
+          }
+          .value{
+            width: 60%;
+            border-bottom: 1px solid #8FCDCC;
+          }
+        }
+      }
+    }
+  }
+  .downContainer{
+    margin: 4rem 0 2rem 0;
+    display: flex;
+    justify-content: center;
+    .buttonContainer{
+      display: flex;
+      .button{
+        margin: 0 1rem;
+      }
+    }
+  }
+}

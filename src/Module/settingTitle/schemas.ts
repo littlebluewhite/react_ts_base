@@ -8,7 +8,7 @@ export type settingTitleState = typeof settingGeneralInit & typeof pageControlIn
 
 export type settingTitleDispatch = Dispatch<settingGeneralActionType | pageControlActionType>
 
-export interface settingTitleType {
+export interface settingTitlePropsType {
     config: settingTitleConfigType
     state: settingTitleState
     dispatch: settingTitleDispatch

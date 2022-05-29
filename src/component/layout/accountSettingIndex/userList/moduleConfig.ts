@@ -1,13 +1,15 @@
 import {deleteUserList} from "../../../../Module/popupWindow/exampleConfig";
+import {clickMode, DataConfigType, elementType} from "../../../../Module/dataModule/schemas";
+import {settingTitleConfigType} from "../../../../Module/settingTitle/schemas";
 
-export const userListTitleConfig = {
+export const userListTitleConfig: settingTitleConfigType = {
     search: true,
     editChangePage: {
         active: true,
-        link: "/layout",
+        link: "/layout/accountSetting/userList/editor",
     },
     editOnPage: {
-        active: true,
+        active: false,
     },
     delete: {
         active: true,
@@ -15,34 +17,58 @@ export const userListTitleConfig = {
     },
     createChangePage: {
         active: true,
-        link: "/layout/accountSetting"
+        link: "/layout/accountSetting/userList/create"
     },
     createOnPage: {
-        active: true,
+        active: false,
     },
     createFolder: {
-        active: true,
+        active: false,
     },
     jsonIn: {
-        active: true,
+        active: false,
     },
     jsonOut: {
-        active: true,
+        active: false,
     },
     csvIn: {
-        active: true,
+        active: false,
     },
     csvOut: {
-        active: true,
+        active: false,
     },
     xlsIn: {
-        active: true,
+        active: false,
     },
     xlsOut: {
-        active: true,
+        active: false,
     },
     information: {
-        active: true,
+        active: false,
     },
     pageControl: true
+}
+
+export const userListSortConfig = {
+    block: "2.5%",
+    field: [
+        {title: "username", width: '20%'},
+        {title: "accessLevel", width: '20%'},
+        {title: "subCompany", width: '17.5%'},
+        {title: "name", width: '20%'},
+        {title: "loginTime", width: '20%'},
+    ]
+}
+
+export const userListDataConfig: DataConfigType = {
+    noDataTextId: "noMatchData",
+    clickMode: clickMode.single,
+    checkKey: "username",
+    row: {
+        "username": { width: '20%'},
+        "accessLevel": { width: '20%'},
+        "subCompany": { width: '17.5%'},
+        "name": { width: '20%'},
+        "loginTime": { width: '20%', type: elementType.time},
+    }
 }

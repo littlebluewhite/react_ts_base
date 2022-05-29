@@ -191,6 +191,9 @@ export const common = {
 
     "accountSetting.account": "Account",
     "accountSetting.userList.createHover": "Create New User",
+    "accountSetting.userList.create.nameError": "Username at least 6 characters",
+    "accountSetting.userList.create.passwordError": "Password at least 6 characters",
+    "accountSetting.userList.create.checkPasswordError": "Inconsistent passwords",
     "accountSetting.group.noGroup": "No any group yet",
     "accountSetting.group.noSearchData": "There are no match found",
     "accountSetting.group.bar.title": "Merge groups",
@@ -201,7 +204,7 @@ export const common = {
     "accountSetting.pluginsFolder": "Plugins folder",
     "accountSetting.plugins.pluginsType": "File Type",
     "accountSetting.plugins.createNewPlugins": "Create New Plugins",
-    "accountSetting.plugins.editPlugins": "Create New Plugins",
+    "accountSetting.plugins.editPlugins": "Edit Plugins",
     "accountSetting.plugins.pluginsName": "Plugins name",
     "accountSetting.plugins.createHover": "Create New Plugins",
     "accountSetting.plugins.createFolderHover": "Create New Folder",

@@ -1,5 +1,5 @@
 import "./settingTitle.css"
-import {deleteConfig, editChangePageProps, settingTitleState, settingTitleType} from "./schemas";
+import {deleteConfig, editChangePageProps, settingTitleState, settingTitlePropsType} from "./schemas";
 import {useIconButton} from "./cunstomHook";
 import {useNavigate} from "react-router-dom";
 import React, {Dispatch} from "react";
@@ -10,7 +10,7 @@ import {popupWindow3Config} from "../popupWindow/schemas";
 import update from "immutability-helper";
 
 //  use generalReducer "settingGeneral"
-export function SettingTitle({config, state, dispatch, data}: settingTitleType) {
+export function SettingTitle({config, state, dispatch, data}: settingTitlePropsType) {
     function handleSearch(event: React.ChangeEvent<HTMLInputElement>){
         dispatch({
             type: "settingGeneral.setSearch",

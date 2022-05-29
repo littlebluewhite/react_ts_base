@@ -203,6 +203,7 @@ header .userIcon .svgContainer.userPhoto {
 
 .articleAsideContainer {
   width: 100%;
+  height: 91%;
   background-color: #8D8D8D;
   display: flex;
   flex-grow: 1;

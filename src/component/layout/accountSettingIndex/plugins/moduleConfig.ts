@@ -1,5 +1,5 @@
-import {clickMode, DataConfigType} from "../../../../Module/dataModule/schemas";
-import {fileTypeFilter} from "../../../../Module/selectModule/configLibrary";
+import {clickMode, DataConfigType, elementType} from "../../../../Module/dataModule/schemas";
+import {fileType_filter} from "../../../../Module/selectModule/configLibrary";
 import {deletePlugins} from "../../../../Module/popupWindow/exampleConfig";
 import {settingTitleConfigType} from "../../../../Module/settingTitle/schemas";
 
@@ -7,7 +7,7 @@ export const pluginsTitleConfig: settingTitleConfigType = {
     search: true,
     editChangePage: {
         active: true,
-        link: "/layout",
+        link: "/layout/accountSetting/plugins/editor",
         condition: (state: any) => {
             const name = Object.keys(state.check)[0]
             return name.slice(-3) === "csv";
@@ -22,7 +22,7 @@ export const pluginsTitleConfig: settingTitleConfigType = {
     },
     createChangePage: {
         active: true,
-        link: "/layout/accountSetting"
+        link: "/layout/accountSetting/plugins/create"
     },
     createOnPage: {
         active: false,
@@ -55,7 +55,7 @@ export const pluginsTitleConfig: settingTitleConfigType = {
 }
 
 export const pluginsFilterConfig = {
-    ...fileTypeFilter
+    ...fileType_filter
 }
 
 export const pluginsSortConfig = {
@@ -80,6 +80,6 @@ export const pluginsDataConfig: DataConfigType = {
     },
     row: {
         "pluginsSchemasName": {width: '75%', photo: false},
-        "fileType": {width: '20%'}
+        "fileType": {width: '20%', type: elementType.value}
     }
 }

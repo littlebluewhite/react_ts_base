@@ -18,10 +18,7 @@ export interface dataRowProps {
 export interface dataElementProps {
     field: string
     value: string
-    config: {
-        width: string
-        photo?: boolean
-    }
+    config: elementConfigType
 }
 
 export enum clickMode {
@@ -37,11 +34,21 @@ export interface DataConfigType {
     checkKey?: string
     rowPhoto?: rowPhotoType
     row: {
-        [key: string]: {
-            width: string,
-            photo?: boolean
-        }
+        [key: string]: elementConfigType
     }
+}
+
+export interface elementConfigType {
+    width: string,
+    photo?: boolean
+    type?: elementType
+}
+
+export enum elementType {
+    default, // text + value
+    text,
+    value,
+    time
 }
 
 export interface rowPhotoType {
@@ -59,7 +66,7 @@ export interface createFolderProps {
     state: typeof settingGeneralInit
 }
 
-export interface rowPhotoProps{
+export interface rowPhotoProps {
     item: any
     rowPhoto: rowPhotoType
 }

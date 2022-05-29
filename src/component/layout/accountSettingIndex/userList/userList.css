@@ -1,3 +1,9 @@
-
+.userList .filterContainer {
+  margin: 2rem 0;
+  display: flex;
+}
+.userList .filterContainer .secondary_button {
+  margin-left: 2rem;
+}
 
 /*# sourceMappingURL=userList.css.map */

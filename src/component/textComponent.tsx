@@ -9,7 +9,7 @@ export function TextLanguage({
 }) {
   const langPackage = useLang().langPackage
   let output = langPackage[textId] || 'not found'
-  if (output === 'not found') return output
+  if (output === 'not found') return textId
   const replaceRegex: RegExp[] = []
   const replaceValues: string[][] = []
   const replaceComponents: ((str: string) => JSX.Element)[] = []

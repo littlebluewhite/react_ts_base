@@ -5,17 +5,20 @@ import {
 } from "../../../../generalReducer/settingGeneral";
 import {pageControlActionType, pageControlInit, pageControlReducer} from "../../../../generalReducer/pageControl";
 import {filterActionType, filterReducer} from "../../../../generalReducer/filterReducer";
+import {sortActionType, sortReducer} from "../../../../generalReducer/sortModule";
 
 export const userListStateInit = {
     ...settingGeneralInit,
     ...pageControlInit,
-    filter: {"accessLevel": ""}
+    filter: {"accessLevel": ""},
+    sort: ["username", false] as [string, boolean]
 }
 
 export type userListActionType =
-    settingGeneralActionType
+    | settingGeneralActionType
     | pageControlActionType
     | filterActionType
+    | sortActionType
 
 
 export function userListReducer(
@@ -29,6 +32,8 @@ export function userListReducer(
             return pageControlReducer(state, action as pageControlActionType)
         case "filter":
             return filterReducer(state, action as filterActionType)
+        case "sortModule":
+            return sortReducer(state, action as sortActionType)
         default:
             throw new Error()
     }

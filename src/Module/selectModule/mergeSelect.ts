@@ -2,7 +2,9 @@ function selectMerge(){
     let result = {}
     const selectData = require("./configLibrary")
     for (let i in selectData){
-        result = {...result, [selectData[i]["name"]]: selectData[i]}
+        if(typeof(selectData[i]) === "object"){
+            result = {...result, [i]: selectData[i]}
+        }
     }
     return result
 }

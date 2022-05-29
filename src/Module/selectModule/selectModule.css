@@ -1,11 +1,11 @@
-.FilterModule {
+.selectModule {
   display: flex;
   align-items: center;
 }
-.FilterModule label {
+.selectModule label {
   font-size: 1.25rem;
 }
-.FilterModule .selectFilter {
+.selectModule .selectFilter {
   background-image: url("./image/selectDown.svg");
   background-position: right 1rem top 50%;
   background-size: 0.625rem 0.4375rem;
@@ -18,7 +18,7 @@
   margin: 0 0 0 1rem;
   width: 12rem;
 }
-.FilterModule .selectFilter:focus {
+.selectModule .selectFilter:focus {
   background-color: #495b7c;
 }
 

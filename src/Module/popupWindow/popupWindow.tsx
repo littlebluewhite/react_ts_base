@@ -33,7 +33,10 @@ export function usePopupWindow1(  // only page2
                 <div className={"model"}>
                     <div className="page1">
                         <div className="head">
-                            <TextLanguage textId={config.page1.title}/>
+                            <div className={"text"}>
+                                <TextLanguage textId={config.page1.title}/>
+                                {config.page1.checkKey}
+                            </div>
                         </div>
                         <div className="body">
                             <button onClick={() => setIsOpen(false)}><TextLanguage textId={config.page1.button1}/>
@@ -83,7 +86,9 @@ export function usePopupWindow2(  // only page2
                             <TextLanguage textId={config.page2.title}/>
                         </div>
                         <div className="body">
-                            <TextLanguage textId={config.page2.context}/>
+                            <div className={"text"}>
+                                <TextLanguage textId={config.page2.context}/>
+                            </div>
                             <button onClick={() => handlePage2()}><TextLanguage textId={config.page2.button}/></button>
                         </div>
                     </div>
@@ -145,8 +150,10 @@ export function usePopupWindow3(  // two windows
         <div className={"model"}>
             <div className="page1">
                 <div className="head">
-                    <TextLanguage textId={config.page1.title}/>
-                    {config.page1.checkKey}
+                    <div className={"text"}>
+                        <TextLanguage textId={config.page1.title}/>
+                        {config.page1.checkKey}
+                    </div>
                 </div>
                 <div className="body">
                     <button onClick={() => setIsOpen(false)}><TextLanguage textId={config.page1.button1}/></button>

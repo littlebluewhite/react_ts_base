@@ -3,7 +3,7 @@ import deleteModel from "./images/deleteModel.svg"
 import {popupWindow1Config, popupWindow2Config, popupWindow3Config} from "./schemas";
 
 // popupWindow3
-export const saveConfig: popupWindow3Config = {
+export const updateConfig: popupWindow3Config = {
     'page1': {
         'title': 'popupWindow.save1.title',
         'button1': 'popupWindow.save1.button1',
@@ -52,14 +52,28 @@ export const deletePlugins = {
 
 export const deleteUserList = {
     'page1': {
-        'title': 'popupWindow.save1.title',
-        'button1': 'popupWindow.save1.button1',
-        'button2': 'popupWindow.save1.button2',
+        'title': 'popupWindow.deleteAccount.title',
+        'button1': 'no',
+        'button2': 'yes',
+    },
+    'page2': {
+        'title': 'popupWindow.deleteSuccessful',
+        'context': 'popupWindow.deleteAccount.context',
+        'button': 'continue',
+        'titleImage': deleteModel,
+    }
+}
+
+export const createUserList: popupWindow3Config = {
+    'page1': {
+        'title': 'popupWindow.createUserList.title',
+        'button1': 'button.cancel',
+        'button2': 'button.save',
     },
     'page2': {
         'title': 'popupWindow.save2.title',
-        'context': 'popupWindow.',
-        'button': 'continue',
-        'titleImage': deleteModel,
+        'context': 'popupWindow.save2.context',
+        'button': 'button.continue',
+        'titleImage': saveIcon,
     }
 }

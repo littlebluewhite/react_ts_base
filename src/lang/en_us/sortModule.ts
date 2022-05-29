@@ -7,6 +7,13 @@ export const alarmSort = {
     "sortModule.title.state": "state"
 }
 
+export const userList = {
+    "sortModule.title.username": "Username",
+    "sortModule.title.accessLevel": "Access Level",
+    "sortModule.title.subCompany": "Corp. Name",
+    "sortModule.title.loginTime": "Login Time",
+}
+
 export const groupSort = {
     "sortModule.title.group": "Group",
     "sortModule.title.latestUpdate": "Latest Update",

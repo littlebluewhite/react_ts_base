@@ -1,0 +1,92 @@
+
+.pluginsSchemasName {
+  display: flex;
+  margin: 1.6rem 0 1rem 1.875rem;
+
+  .title {
+    margin: 0 2rem 0 0;
+    color: white;
+    font-weight: bold;
+  }
+}
+
+.pluginsNameContainer {
+  margin: 1rem 3.45rem 0 3.45rem;
+  padding: 0 0 3rem 0;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: solid 1px #8D97AD;
+
+  .pluginsName {
+    font-size: 1.625rem;
+  }
+
+  .value {
+    margin: 0 0 0 2rem;
+    width: 25rem;
+
+    input {
+      width: 100%;
+      color: #8FCDCC;
+      font-size: 1.625rem;
+      border-bottom: 1px solid #8FCDCC;
+
+      &:focus {
+        box-shadow: 0 4px rgb(143 205 204 / 65%);
+      }
+    }
+  }
+
+}
+
+.pluginsSchemas {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 5rem 0 5rem;
+
+  .column1 {
+    width: 60%;
+  }
+
+  .column2 {
+    width: 20%;
+  }
+
+  .schemasRow {
+    margin: .5rem 0;
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 97%;
+      color: #8FCDCC;
+      font-size: 1.625rem;
+      border-bottom: 1px solid #c9f1f0;
+
+      &:focus {
+        box-shadow: 0 4px rgb(143 205 204 / 65%);
+      }
+    }
+
+    .svgContainer {
+      cursor: pointer;
+      width: fit-content;
+      margin: 0 1rem 0 0;
+    }
+  }
+
+  .addButtonContainer {
+    margin: 2.6rem 0 1.88rem 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.pluginsButton {
+  display: flex;
+  justify-content: center;
+
+  .secondary_button {
+    margin: 0 1rem;
+  }
+}

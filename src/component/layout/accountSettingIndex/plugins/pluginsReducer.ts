@@ -33,5 +33,7 @@ export function pluginsReducer(
             return filterReducer(state, action as filterActionType)
         case "sortModule":
             return sortReducer(state, action as sortActionType)
+        default:
+            throw new Error()
     }
 }

@@ -23,6 +23,10 @@
   align-items: center;
   justify-content: center;
 }
+.model > .page1 > .body .text {
+  text-align: center;
+  line-height: 2.3rem;
+}
 .model > .page1 > .body > button {
   border-radius: 0.625rem;
   width: 13.125rem;

@@ -1,0 +1,133 @@
+.userListCreateEditor form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.userListCreateEditor form input {
+  font-size: 1.25rem;
+  color: #8FCDCC;
+  width: 100%;
+}
+.userListCreateEditor form select {
+  width: 100%;
+  background-image: url("../../../../../image/svg/selectDown.svg");
+  background-size: 0.625rem 0.4375rem;
+  background-position: top 60% right 2%;
+  background-repeat: no-repeat;
+}
+.userListCreateEditor .upContainer {
+  padding: 0 1.9% 0 1.9%;
+}
+.userListCreateEditor .upContainer .title {
+  font-weight: bold;
+  color: #FFFFFF;
+  margin: 1.25rem 0 0 0;
+}
+.userListCreateEditor .upContainer .informationContainer {
+  display: flex;
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer {
+  box-sizing: border-box;
+  width: 50%;
+  padding: 0 3% 0 2%;
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer .item {
+  align-items: center;
+  margin: 1rem 0;
+  justify-content: space-between;
+  display: flex;
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer .item .name {
+  width: 40%;
+  color: #8FCDCC;
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer .item .name.user {
+  color: rgba(143, 205, 204, 0.35);
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer .item .name.accountLevel {
+  display: flex;
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer .item .value {
+  width: 60%;
+  border-bottom: 1px solid #8FCDCC;
+  position: relative;
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer .item .value .accessLevel_choice-1 label {
+  display: none;
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer .item .value .accessLevel_choice-1 select {
+  width: 100%;
+  margin: 0;
+  background-color: transparent;
+  border-radius: 0;
+  padding-left: 0.2rem;
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer .item .value .accessLevel_choice-1 select:focus {
+  background-color: #495b7c;
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer .item .value .svgContainer.correct {
+  background-image: url("../../../../../image/svg/correct.svg");
+  width: 1.25rem;
+  height: 1.25rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer .item .value.user {
+  color: rgba(143, 205, 204, 0.35);
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer .item .value.checkPassword {
+  position: relative;
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer .item .value .message {
+  font-size: 1rem;
+  color: red;
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  width: fit-content;
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer.address {
+  width: 100%;
+  padding-right: 2%;
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer.address .item {
+  margin-top: 0;
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer.address .item .name {
+  width: 18.7%;
+}
+.userListCreateEditor .upContainer .informationContainer .leftContainer.address .item .value {
+  width: 81.3%;
+}
+.userListCreateEditor .upContainer .informationContainer .rightContainer {
+  box-sizing: border-box;
+  width: 50%;
+  padding: 0 2% 0 3%;
+}
+.userListCreateEditor .upContainer .informationContainer .rightContainer .item {
+  align-items: center;
+  margin: 1rem 0;
+  display: flex;
+}
+.userListCreateEditor .upContainer .informationContainer .rightContainer .item .name {
+  width: 40%;
+}
+.userListCreateEditor .upContainer .informationContainer .rightContainer .item .value {
+  width: 60%;
+  border-bottom: 1px solid #8FCDCC;
+}
+.userListCreateEditor .downContainer {
+  margin: 4rem 0 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+.userListCreateEditor .downContainer .buttonContainer {
+  display: flex;
+}
+.userListCreateEditor .downContainer .buttonContainer .button {
+  margin: 0 1rem;
+}
+
+/*# sourceMappingURL=userListCreate.css.map */

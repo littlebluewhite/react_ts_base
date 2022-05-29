@@ -1,4 +1,12 @@
-import {dataModuleProps, dataElementProps, clickMode, createFolderProps, dataRowProps, rowPhotoProps} from "./schemas"
+import {
+    clickMode,
+    createFolderProps,
+    dataElementProps,
+    dataModuleProps,
+    dataRowProps,
+    elementType,
+    rowPhotoProps
+} from "./schemas"
 import './dataModule.css'
 import "./dataModule.css"
 import {settingMode} from "../../generalReducer/settingGeneral";
@@ -7,6 +15,7 @@ import React, {FormEvent, useCallback, useEffect, useRef, useState} from "react"
 import {useToken} from "../../generalFunction/providerHook";
 import {fetchCreateFolder, fetchPluginsSchemas} from "../../component/layout/accountSettingIndex/plugins/fetchFunction";
 import {allSelectData, getSelectTextId} from "../selectModule/mergeSelect";
+import {timestampToFormatTime} from "../../generalFunction/convertFunction";
 
 
 // reducer use settingGeneral
@@ -163,12 +172,16 @@ function RowPhoto({item, rowPhoto}: rowPhotoProps) {
 }
 
 export function DataElement({field, value, config}: dataElementProps){
+    const type = config.type || elementType.default
     return (
         <div className={"dataElement"} style={{width: config.width}}>
             <div className={"block"} style={{width: "0.8rem"}}/>
             {config.photo && <div className={`svgContainer ${field}-${value}`}/>}
-            {field in allSelectData ? <TextLanguage textId={getSelectTextId(field, value)}/>:
-            value}
+            {type === elementType.default &&((field+"_filter") in allSelectData ? <TextLanguage textId={getSelectTextId((field+"_filter"), value)}/>:
+            value)}
+            {type === elementType.text && value}
+            {type === elementType.value && <TextLanguage textId={getSelectTextId((field+"_filter"), value)}/>}
+            {type === elementType.time && timestampToFormatTime(+value)}
         </div>
     )
 }

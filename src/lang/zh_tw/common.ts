@@ -191,6 +191,9 @@ export const common = {
 
     "accountSetting.account": "帳戶",
     "accountSetting.userList.createHover": "創建新帳號",
+    "accountSetting.userList.create.nameError": "帳號至少6個字",
+    "accountSetting.userList.create.passwordError": "密碼至少6個字",
+    "accountSetting.userList.create.checkPasswordError": "密碼不一致",
     "accountSetting.group.noGroup": "目前沒有任何群組",
     "accountSetting.group.noSearchData": "沒有符合查詢的群組",
     "accountSetting.group.bar.title": "合併群組",

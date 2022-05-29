@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useMemo, useReducer, useRef} from "react"
 import {pluginsActionType, pluginsReducer, pluginsStateInit} from "./pluginsReducer";
 import {SettingTitle} from "../../../../Module/settingTitle/settingTitle";
 import {pluginsDataConfig, pluginsFilterConfig, pluginsSortConfig, pluginsTitleConfig} from "./moduleConfig";
-import {FilterModule} from "../../../../Module/selectModule/selectModule";
+import {SelectModule} from "../../../../Module/selectModule/selectModule";
 import "./plugins.css"
 import {ResetButton} from "../../../../Module/resetButton/resetButton";
 import {fetchDeletePlugins, fetchPluginsSchemas} from "./fetchFunction";
@@ -13,9 +13,12 @@ import {settingMode} from "../../../../generalReducer/settingGeneral";
 import {SortModule} from "../../../../Module/sortModule/sortModule";
 import {DataModule} from "../../../../Module/dataModule/dataModule";
 import update from "immutability-helper";
+import {useLocation} from "react-router-dom";
 
 export function Plugins() {
-    const [state, dispatch] = useReducer(pluginsReducer as any, pluginsStateInit) as [typeof pluginsStateInit, React.Dispatch<pluginsActionType>]
+    const location = useLocation()
+    const stateInit = location.state || pluginsStateInit
+    const [state, dispatch] = useReducer(pluginsReducer as any, stateInit) as [typeof pluginsStateInit, React.Dispatch<pluginsActionType>]
     const controller = useRef<Boolean>(false)
     const token = useToken()
     const langPackage = useLang().langPackage
@@ -118,7 +121,7 @@ export function Plugins() {
             <SettingTitle config={titleConfig} state={state} dispatch={dispatch} data={data}
             />
             <div className={"filterContainer"}>
-                <FilterModule dispatch={dispatch} state={state} config={pluginsFilterConfig}
+                <SelectModule dispatch={dispatch} value={state.filter.fileType} config={pluginsFilterConfig}
                               additionalFunc={filterModuleAdditionalFunc}
                 />
                 <ResetButton resetFunction={resetFunction}/>

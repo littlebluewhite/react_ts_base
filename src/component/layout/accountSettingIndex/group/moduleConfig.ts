@@ -21,10 +21,10 @@ export const groupTitleConfig = {
         active: false,
     },
     jsonIn: {
-        active: true,
+        active: false,
     },
     jsonOut: {
-        active: true,
+        active: false,
     },
     csvIn: {
         active: false,
@@ -39,14 +39,13 @@ export const groupTitleConfig = {
         active: false,
     },
     information: {
-        active: true,
+        active: false,
     },
     pageControl: false
 }
 
 export const groupSortConfig = {
     field: [
-        {title: "group", width: '85%'},
-        {title: "latestUpdate", width: '15%'},
+        {title: "group", width: '100%'},
     ]
 }

@@ -1,0 +1,79 @@
+.pluginsSchemasName {
+  display: flex;
+  margin: 1.6rem 0 1rem 1.875rem;
+}
+.pluginsSchemasName .title {
+  margin: 0 2rem 0 0;
+  color: white;
+  font-weight: bold;
+}
+
+.pluginsNameContainer {
+  margin: 1rem 3.45rem 0 3.45rem;
+  padding: 0 0 3rem 0;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: solid 1px #8D97AD;
+}
+.pluginsNameContainer .pluginsName {
+  font-size: 1.625rem;
+}
+.pluginsNameContainer .value {
+  margin: 0 0 0 2rem;
+  width: 25rem;
+}
+.pluginsNameContainer .value input {
+  width: 100%;
+  color: #8FCDCC;
+  font-size: 1.625rem;
+  border-bottom: 1px solid #8FCDCC;
+}
+.pluginsNameContainer .value input:focus {
+  box-shadow: 0 4px rgba(143, 205, 204, 0.65);
+}
+
+.pluginsSchemas {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 5rem 0 5rem;
+}
+.pluginsSchemas .column1 {
+  width: 60%;
+}
+.pluginsSchemas .column2 {
+  width: 20%;
+}
+.pluginsSchemas .schemasRow {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+.pluginsSchemas .schemasRow input {
+  width: 97%;
+  color: #8FCDCC;
+  font-size: 1.625rem;
+  border-bottom: 1px solid #c9f1f0;
+}
+.pluginsSchemas .schemasRow input:focus {
+  box-shadow: 0 4px rgba(143, 205, 204, 0.65);
+}
+.pluginsSchemas .schemasRow .svgContainer {
+  cursor: pointer;
+  width: fit-content;
+  margin: 0 1rem 0 0;
+}
+.pluginsSchemas .addButtonContainer {
+  margin: 2.6rem 0 1.88rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.pluginsButton {
+  display: flex;
+  justify-content: center;
+}
+.pluginsButton .secondary_button {
+  margin: 0 1rem;
+}
+
+/*# sourceMappingURL=pluginsCreate.css.map */

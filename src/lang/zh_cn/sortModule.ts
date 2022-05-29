@@ -7,6 +7,13 @@ export const alarmSort = {
     "sortModule.title.state": "狀態"
 }
 
+export const userList = {
+    "sortModule.title.username": "帐户名",
+    "sortModule.title.accessLevel": "帐号级别",
+    "sortModule.title.subCompany": "所属公司",
+    "sortModule.title.loginTime": "最后登入时间",
+}
+
 export const groupSort = {
     "sortModule.title.group": "群組",
     "sortModule.title.latestUpdate": "更新時間",

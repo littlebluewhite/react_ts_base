@@ -1,9 +1,9 @@
 import {usePopupWindow3} from "../../../../Module/popupWindow/popupWindow";
-import {saveConfig} from "../../../../Module/popupWindow/exampleConfig";
+import {updateConfig} from "../../../../Module/popupWindow/exampleConfig";
 
 export function Test1(){
     const config = {
-        ...saveConfig
+        ...updateConfig
     }
 
     const [component , setIsOpen]=usePopupWindow3(config)

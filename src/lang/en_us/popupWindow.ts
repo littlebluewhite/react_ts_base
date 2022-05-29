@@ -3,7 +3,7 @@ export const save = {
     'popupWindow.save1.button1': 'Cancel',
     'popupWindow.save1.button2': 'Save',
     'popupWindow.save2.title': 'Save Successful',
-    'popupWindow.save2.context': 'Save Successful',
+    'popupWindow.save2.context': 'All the changes has been saved successfully',
     'popupWindow.save2.button': 'Continue',
 }
 
@@ -16,5 +16,11 @@ export const cancel = {
 export const deleteConfig = {
     "popupWindow.deleteSuccessful": "Delete Successful",
     "popupWindow.deletePlugins.title": "Delete Plugins : ",
-    "popupWindow.deletePlugins.context": "plugins structure have been successfully deleted."
+    "popupWindow.deletePlugins.context": "plugins structure have been successfully deleted.",
+    "popupWindow.deleteAccount.title": "Delete Account : ",
+    "popupWindow.deleteAccount.context": "Account has been successfully deleted.",
+}
+
+export const createConfig = {
+    "popupWindow.createUserList.title": "Sure to create new account?"
 }
