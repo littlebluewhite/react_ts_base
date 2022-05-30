@@ -11,7 +11,6 @@ export const groupStateInit = {
     ...settingGeneralInit,
     ...pageControlInit,
     sort: ["group", false] as [string, boolean],
-    rawData: [] as any[],
     cancelIsOpen: false
 }
 

@@ -14,6 +14,7 @@ export const cancel = {
 }
 
 export const deleteConfig = {
+    "popupWindow.delete.title": "確定刪除?",
     "popupWindow.deleteSuccessful": "刪除成功",
     "popupWindow.deletePlugins.title": "刪除插件 : ",
     "popupWindow.deletePlugins.context": "插件結構已經被刪除成功",

@@ -23,7 +23,6 @@ export interface groupElementContainerProps{
     data:any
     state:any
     dispatch:Function
-    index:number
     handleDelete:Function
 }
 
@@ -46,7 +45,6 @@ export interface groupCreateProps{
     state:any
     dispatch:Function
     saveRawData:Function
-    handleDelete:Function
 }
 
 export interface handleCreateGroupDataProps{

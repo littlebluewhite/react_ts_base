@@ -7,7 +7,7 @@ import {allSelectData} from "./mergeSelect";
 
 // reducer use filterReducer when using for filter
 export function SelectModule(
-    {value, dispatch, config, additionalFunc=()=>{}, effectFunc=()=>{}}: FilterModuleType){
+    {value, dispatch, config, additionalFunc=()=>{}, effectFunc}: FilterModuleType){
     const controller = useRef<boolean>(false)
     const configDataInit = function(){
         if(typeof(config) === "function"){
@@ -36,10 +36,13 @@ export function SelectModule(
             const data = await config()
             allSelectData[data.name] = data
             setConfigData(data)
-            effectFunc()
+            if(effectFunc){
+                await effectFunc()
+            }
         }
     },[config, effectFunc])
     useEffect(()=>{
+        console.log("a")
         controller.current = true
         if( controller.current){
             console.log(fetchData())

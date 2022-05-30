@@ -14,6 +14,7 @@ export const cancel = {
 }
 
 export const deleteConfig = {
+    "popupWindow.delete.title": "Sure to Delete?",
     "popupWindow.deleteSuccessful": "Delete Successful",
     "popupWindow.deletePlugins.title": "Delete Plugins : ",
     "popupWindow.deletePlugins.context": "plugins structure have been successfully deleted.",

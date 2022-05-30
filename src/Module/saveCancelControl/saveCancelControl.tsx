@@ -8,12 +8,14 @@ import {cancelConfig, saveConfig2} from "../popupWindow/exampleConfig";
 import update from "immutability-helper";
 
 // reducer use settingGeneral
-export function SaveCancelControl({state, dispatch, saveFunction, cancelFunction}: saveCancelControlProps) {
+export function SaveCancelControl({state, dispatch, config}: saveCancelControlProps) {
     const popupCancelConfig = update(cancelConfig, {
         page1: {
             func: {
-                $set: () => {
-                    cancelFunction()
+                $set: async () => {
+                    if(config.cancelFunction){
+                        await config.cancelFunction()
+                    }
                     dispatch({
                         type: "settingGeneral.setStatus",
                         payload: settingMode.watch
@@ -31,7 +33,9 @@ export function SaveCancelControl({state, dispatch, saveFunction, cancelFunction
             page2: {
                 func: {
                     $set: async () => {
-                        saveFunction()
+                        if (config.continueFunction){
+                            await config.continueFunction()
+                        }
                         dispatch({
                             type: "settingGeneral.setStatus",
                             payload: settingMode.watch
@@ -49,7 +53,7 @@ export function SaveCancelControl({state, dispatch, saveFunction, cancelFunction
     const [popCancel, setCancelOpen] = usePopupWindow1(popupCancelConfig)
     const [popSave, setSaveOpen] = usePopupWindow2(popupSaveConfig)
 
-    function handleCancel() {
+    async function handleCancel() {
         if (state.isChange) {
             setCancelOpen(true)
         } else {
@@ -61,6 +65,9 @@ export function SaveCancelControl({state, dispatch, saveFunction, cancelFunction
     }
 
     async function handleSave() {
+        if(config.saveFunction){
+            await config.saveFunction()
+        }
         setSaveOpen(true)
     }
 

@@ -6,10 +6,8 @@ import "./group.css"
 import {SortModule} from "../../../../Module/sortModule/sortModule";
 import {sortInit} from "../../../../generalReducer/sortModule";
 import {
-    checkFetchResult,
     dealGroupData,
     deepCopy,
-    fetchCreateGroup,
     handleMouse,
     mergeClassName,
     mergeSelectData,
@@ -20,7 +18,7 @@ import {
     subHandleClick,
     useFold
 } from "./groupFunction";
-import {deleteAccount, fetchGroup} from "./fetchFunction";
+import {deleteAccount, fetchCreateGroup, fetchDefaultGroup, fetchGroup, updateGroup} from "./fetchFunction";
 import {useToken} from "../../../../generalFunction/providerHook";
 import {SaveCancelControl} from "../../../../Module/saveCancelControl/saveCancelControl";
 import {
@@ -46,12 +44,12 @@ import {
 import {settingTitleDispatch, settingTitleState} from "../../../../Module/settingTitle/schemas";
 import {TextLanguage} from "../../../textComponent";
 import {ParentModel} from "../../../parentComponent";
-import {globalSetting} from "../../../../setting/globalSetting";
 import {hoverData} from "./package";
 import {settingMode} from "../../../../generalReducer/settingGeneral";
 import {usePopupWindow1, usePopupWindow2} from "../../../../Module/popupWindow/popupWindow";
 import {saveConfig2} from "../../../../Module/popupWindow/exampleConfig";
 import update from "immutability-helper";
+import {saveCancelConfigType} from "../../../../Module/saveCancelControl/schemas";
 
 // const token
 // const lang = "EN"
@@ -64,7 +62,6 @@ const ackSchemas = [
 
 export function Group() {
     const token = useToken()
-    console.log(token);
 
     const [state, dispatch] = useReducer(groupReducer as any, groupStateInit) as [typeof groupStateInit, React.Dispatch<groupActionType>]
 
@@ -100,17 +97,37 @@ export function Group() {
         }
     }, [saveRawData, token])
 
+    const saveCancelConfig: saveCancelConfigType = {
+        continueFunction: async () => {
+            await saveRawData(token)
+        },
+        cancelFunction:async () => {
+            await saveRawData(token)
+        },
+        saveFunction: async () =>{
+            return Promise.all(state.rawData.map(item=> {
+                const postData = update({...item.groupData}, {
+                    OriTemplateName:{$set: item.groupName},
+                    Template: {$set:[]}
+                })
+                return updateGroup(token, postData)
+            }))
+            // for (let items of state.rawData) {
+            //     let postData = update({}, {$set: {...items.groupData}})
+            //     postData = update(postData, {OriTemplateName: {$set: items.groupName}})
+            //     postData = update(postData, {Template: {$set: []}})
+            //     const repo = await updateGroup(token, postData)
+            // }
+        }
+    }
+
     return (
         <div className={"group"}>
             <SettingTitle config={groupTitleConfig} state={state as settingTitleState}
                           dispatch={dispatch as settingTitleDispatch} data={data}/>
             <SortModule config={groupSortConfig} state={state as typeof sortInit} dispatch={dispatch}/>
             <GroupsData data={data} state={state} dispatch={dispatch} saveRawData={saveRawData}/>
-            <SaveCancelControl state={state} dispatch={dispatch}
-                               saveFunction={() => {
-                                   saveRawData(token)
-                               }} cancelFunction={() => {
-            }}/>
+            <SaveCancelControl state={state} dispatch={dispatch} config={saveCancelConfig}/>
         </div>
     )
 }
@@ -118,11 +135,11 @@ export function Group() {
 function GroupsData({data, state, dispatch, saveRawData}: groupsDataProps) {
     const token = useToken()
     const [deleteItem, setDeleteItem] = useState<string>()
-    const cancelParams = {
+    const deleteParams = {
         'page1': {
-            'title': 'popupWindow.cancel1.title',
-            'button1': 'popupWindow.cancel1.button1',
-            'button2': 'popupWindow.cancel1.button2',
+            'title': "popupWindow.delete.title",
+            'button1': 'no',
+            'button2': 'yes',
             func: async () => {
                 await deleteAccount(token, deleteItem)
                 await saveRawData(token)
@@ -141,32 +158,34 @@ function GroupsData({data, state, dispatch, saveRawData}: groupsDataProps) {
             }
         }
     }
-    const [component, setDelete] = usePopupWindow1(cancelParams)
+    const [component, setDelete] = usePopupWindow1(deleteParams)
 
     const handleDelete = useCallback(async (groupName: string) => {
         setDeleteItem(groupName)
         setDelete(true)
 
-    }, [])
+    }, [setDelete])
     return (
         <div className={"groupsData"}>
             {component}
             {state.settingMode === settingMode.create &&
-                <GroupCreate state={state} dispatch={dispatch} saveRawData={saveRawData} handleDelete={handleDelete}/>}
+                <GroupCreate state={state} dispatch={dispatch} saveRawData={saveRawData}/>}
             {data.map((item: any, index: number) => (
                 <GroupElementContainer key={index} data={item} state={state} dispatch={dispatch}
-                                       handleDelete={handleDelete} index={index}/>
+                                       handleDelete={handleDelete}/>
             ))}
             <div className={"buttonBlock"}/>
         </div>
     )
 }
 
-function GroupCreate({state, dispatch, saveRawData, handleDelete}: groupCreateProps) {
+function GroupCreate({state, dispatch, saveRawData}: groupCreateProps) {
     const token = useToken()
     const [isOpen, setIsOpen] = useState(false)
     // const [saveIsOpen, setSaveIsOpen] = useState(false)
-    const saveParams = update(saveConfig2, {page2: {func: {
+    const saveParams = update(saveConfig2, {
+        page2: {
+            func: {
                 $set:
                     async () => {
                         // saveFunction()
@@ -196,11 +215,7 @@ function GroupCreate({state, dispatch, saveRawData, handleDelete}: groupCreatePr
     const inputRef = useRef<any>()
 
     const fetchDefaultData = useCallback(async (token: string) => {
-            const response = await fetch(`${globalSetting.SERVER}:${globalSetting.PORT}/api/account/default_template`, {
-                headers: new Headers({
-                    Authorization: "Bearer " + token
-                })
-            })
+            const response = await fetchDefaultGroup(token)
             const data = await response.json()
             if (controller.current) {
                 defaultDataRef.current = deepCopy(data)
@@ -212,8 +227,7 @@ function GroupCreate({state, dispatch, saveRawData, handleDelete}: groupCreatePr
     const handleSubmit = useCallback(async (event: any) => {
         event.preventDefault()
         try {
-            const response = await fetchCreateGroup(token, createData, inputRef.current.value)
-            const response2 = await checkFetchResult(response)
+            console.log(await fetchCreateGroup(token, createData, inputRef.current.value))
             setSaveIsOpen(true)
             saveRawData(token)
         } catch (e) {
@@ -395,7 +409,7 @@ function MergeGroups({
     )
 }
 
-function GroupElementContainer({data, state, dispatch, index, handleDelete}: groupElementContainerProps) {
+function GroupElementContainer({data, state, dispatch, handleDelete}: groupElementContainerProps) {
     const {isFold, foldClassName, changeFold} = useFold()
 
 

@@ -1,6 +1,6 @@
 import {groupStateInit} from "./groupReducer";
 import {eventSearch, eventSort} from "../../../../generalFunction/dealDataFunction";
-import { useState,useMemo } from "react";
+import {useMemo, useState} from "react";
 
 export function dealGroupData(state: typeof groupStateInit){
     const {rawData, search, sort} = state
@@ -8,8 +8,7 @@ export function dealGroupData(state: typeof groupStateInit){
     return eventSort(searchedData, sort)
 }
 
-//對於開啟關閉箭頭樣式的變動
-const SERVER="http://20.48.113.161:4000"
+// 對於開啟關閉箭頭樣式的變動
 export function useFold(initial=true){
     const [isFold, setIsFold] = useState(initial)
 
@@ -175,28 +174,4 @@ export function setDataReturn(pre:any, field:any, data:any){
         data[field] = 1
         return {...pre, [field]: 1}
     }
-}
-
-export function fetchCreateGroup(token:any, createData:any, name:any){
-    return fetch(SERVER.slice(0, -4) + "9322/api/account/create_template",{
-        method: "POST",
-        headers: new Headers({
-            Authorization: "Bearer " + token
-        }),
-        body: JSON.stringify({
-            "NewTemplateName": name,
-            "Template": [],
-            ...createData
-        })
-    })
-}
-
-export function checkFetchResult(response:any){
-    return new Promise(function(resolve, reject){
-        if(response.ok){
-            resolve(response)
-        }else{
-            reject(response)
-        }
-    })
 }

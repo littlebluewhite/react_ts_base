@@ -6,6 +6,8 @@ export const globalSetting = {
     PHOTO_DEFAULT: true,
 
     // dev
-    SERVER: "http://20.48.113.161",
-    PORT: 9322
+    // SERVER: "http://20.48.113.161",
+    PORT: 9200,
+
+    SERVER: "http://220.128.216.143"
 }

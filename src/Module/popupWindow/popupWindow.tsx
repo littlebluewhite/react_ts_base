@@ -22,10 +22,15 @@ export function usePopupWindow1(  // only page2
     const [isOpen, setIsOpen] = useState<Boolean>(false)
 
     async function handlePage1() {
-        if (config.page1.func){
-            await config.page1.func()
+        try{
+            if (config.page1.func){
+                await config.page1.func()
+            }
+            setIsOpen(false)
+        }catch (e: any) {
+            alert(e)
+            console.log(e)
         }
-        setIsOpen(false)
     }
     const component = (isOpen &&
         <ParentModel>
